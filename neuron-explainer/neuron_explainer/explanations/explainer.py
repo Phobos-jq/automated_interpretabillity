@@ -121,7 +121,9 @@ class NeuronExplainer(ABC):
             assert isinstance(prompt, str)
             generate_kwargs["prompt"] = prompt
 
+        print("!! now making request")
         response = await self.client.make_request(**generate_kwargs)
+        print("!! making request done")
         logger.debug("response in generate_explanations is %s", response)
 
         if self.prompt_format == PromptFormat.HARMONY_V4:
