@@ -88,9 +88,9 @@ API_HTTP_HEADERS = {
     "Authorization": "Bearer " + API_KEY,
 }
 
-BASE_API_URL = 'https://open.xiaojingai.com/v1'    # 使用openai镜像网站
+# BASE_API_URL = 'https://open.xiaojingai.com/v1'    # 使用openai镜像网站
 # BASE_API_URL = 'https://ai.liaobots.work/v1'    # 使用openai镜像网站
-# BASE_API_URL = "https://api.openai.com/v1"
+BASE_API_URL = "https://api.openai.com/v1"
 
 
 class ApiClient:
@@ -134,7 +134,12 @@ class ApiClient:
             # endpoint. Otherwise, it should be sent to the /completions endpoint.
             url = BASE_API_URL + ("/chat/completions" if "messages" in kwargs else "/completions")
             kwargs["model"] = self.model_name
+            # print("======================================")
+            # print(f"{kwargs=}")
+            # print(f"{url=}, {API_HTTP_HEADERS=}")
             response = await http_client.post(url, headers=API_HTTP_HEADERS, json=kwargs)
+            # print(f"{(response.json())=}")
+            # print("======================================")
         # The response json has useful information but the exception doesn't include it, so print it
         # out then reraise.
         try:
@@ -146,7 +151,11 @@ class ApiClient:
             self._cache[key] = response.json()
         return response.json()
     
-
+        generate_kwargs: dict[str, Any] = {
+            "max_tokens": 0,
+            "echo": True,
+            "logprobs": 5,
+        }
 # 改用request调用api
 # class ApiClient:
 #     """使用 OpenAI API 进行推理的客户端。支持响应缓存和并发限制。"""

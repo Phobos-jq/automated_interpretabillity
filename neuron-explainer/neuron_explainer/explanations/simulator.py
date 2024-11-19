@@ -8,6 +8,8 @@ from abc import ABC, abstractmethod
 from collections import OrderedDict
 from enum import Enum
 from typing import Any, Optional, Sequence, Union
+from transformers import AutoTokenizer, AutoModelForCausalLM
+import torch
 
 import numpy as np
 from neuron_explainer.activations.activation_records import (
@@ -329,7 +331,7 @@ class ExplanationNeuronSimulator(NeuronSimulator):
         prompt = self.make_simulation_prompt(tokens)
 
         generate_kwargs: dict[str, Any] = {
-            "max_tokens": 0,
+            "max_tokens": 1000,
             "echo": True,
             "logprobs": 15,
         }
@@ -411,6 +413,8 @@ class ExplanationTokenByTokenSimulator(NeuronSimulator):
         few_shot_example_set: FewShotExampleSet = FewShotExampleSet.NEWER,
         prompt_format: PromptFormat = PromptFormat.INSTRUCTION_FOLLOWING,
         cache: bool = False,
+        llama_model_dir: str = '/data2/huggingface/Meta-Llama-3-8B-Instruct',
+        device: str = 'cpu' # 'cuda' if torch.cuda.is_available() else 'cpu',
     ):
         assert (
             few_shot_example_set != FewShotExampleSet.ORIGINAL
@@ -418,47 +422,190 @@ class ExplanationTokenByTokenSimulator(NeuronSimulator):
         self.api_client = ApiClient(
             model_name=model_name, max_concurrent=max_concurrent, cache=cache
         )
+        self.model_name = model_name
         self.explanation = explanation
         self.few_shot_example_set = few_shot_example_set
         self.prompt_format = prompt_format
+
+        if model_name == 'meta-llama/Meta-Llama-3-8B-Instruct':
+            # 加载 LLaMA 模型和分词器
+            print("Loading tokenizer and model...")
+            self.tokenizer = AutoTokenizer.from_pretrained(llama_model_dir)
+            self.model = AutoModelForCausalLM.from_pretrained(
+                llama_model_dir, 
+                torch_dtype=torch.bfloat16, 
+                device_map=device
+            )
+            self.device = device
+            print("Model and tokenizer loaded.")
 
     async def simulate(
         self,
         tokens: Sequence[str],
     ) -> SequenceSimulation:
-        responses_by_token = await asyncio.gather(
-            *[
-                self._get_activation_stats_for_single_token(tokens, self.explanation, token_index)
-                for token_index in range(len(tokens))
-            ]
-        )
-        expected_values, distribution_values, distribution_probabilities = [], [], []
-        for response in responses_by_token:
-            activation_logprobs = response["choices"][0]["logprobs"]["top_logprobs"][0]
-            (
-                norm_probabilities_by_distribution_value,
-                expected_value,
-            ) = compute_predicted_activation_stats_for_token(
-                activation_logprobs,
+        if self.model_name == 'meta-llama/Meta-Llama-3-8B-Instruct':
+            print("now using llama to simulate")
+            responses_by_token = await asyncio.gather(
+                *[
+                    self._get_activation_stats_for_single_token_llama(tokens, self.explanation, token_index)
+                    for token_index in range(len(tokens))
+                ]
             )
-            distribution_values.append(
-                [float(v) for v in norm_probabilities_by_distribution_value.keys()]
-            )
-            distribution_probabilities.append(
-                list(norm_probabilities_by_distribution_value.values())
-            )
-            expected_values.append(expected_value)
+            print("===============================")
+            print("===============================")
+            print(f"{responses_by_token=}")
+            print("===============================")
+            print("===============================")
+            expected_values, distribution_values, distribution_probabilities = [], [], []
+            for response in responses_by_token:
+                print("===============================")
+                print(f"{response=}")
+                print("===============================")
+                activation_top_logprobs = response
+                if len(activation_top_logprobs) >= 1:
+                    activation_logprobs = activation_top_logprobs[0]
+                elif len(activation_top_logprobs) == 0:
+                    activation_logprobs = {'0': -10, '1': -10, '2': -10, '3': -10, '<|endoftext|>': -1, '4': -10, ' 5': -10, '6': -10, '7': -10, '8': -10, '9': -10, '\n': -10, '\t': -10, '10': -10, ' ': -10}
+                (
+                    norm_probabilities_by_distribution_value,
+                    expected_value,
+                ) = compute_predicted_activation_stats_for_token(
+                    activation_logprobs,
+                )
+                distribution_values.append(
+                    [float(v) for v in norm_probabilities_by_distribution_value.keys()]
+                )
+                distribution_probabilities.append(
+                    list(norm_probabilities_by_distribution_value.values())
+                )
+                expected_values.append(expected_value)
 
-        result = SequenceSimulation(
-            tokens=list(tokens),  # SequenceSimulation expects List type
-            expected_activations=expected_values,
-            activation_scale=ActivationScale.SIMULATED_NORMALIZED_ACTIVATIONS,
-            distribution_values=distribution_values,
-            distribution_probabilities=distribution_probabilities,
-        )
-        logger.debug("result in score_explanation_by_activations is %s", result)
-        return result
+            result = SequenceSimulation(
+                tokens=list(tokens),  # SequenceSimulation expects List type
+                expected_activations=expected_values,
+                activation_scale=ActivationScale.SIMULATED_NORMALIZED_ACTIVATIONS,
+                distribution_values=distribution_values,
+                distribution_probabilities=distribution_probabilities,
+            )
+            logger.debug("result in score_explanation_by_activations is %s", result)
+            return result
+        
+        else:    
+            # print("===============================")
+            # print("===============================")
+            # print("starting get responses_by_token")
+            # print("===============================")
+            # print("===============================")
+            responses_by_token = await asyncio.gather(
+                *[
+                    self._get_activation_stats_for_single_token(tokens, self.explanation, token_index)
+                    for token_index in range(len(tokens))
+                ]
+            )
+            # print("===============================")
+            # print("===============================")
+            # print(f"{responses_by_token=}")
+            # print("===============================")
+            # print("===============================")
+            expected_values, distribution_values, distribution_probabilities = [], [], []
+            for response in responses_by_token:
+                # print("===============================")
+                # print(f"{response=}")
+                # print("===============================")
+                activation_top_logprobs = response["choices"][0]["logprobs"]["top_logprobs"]
+                if len(activation_top_logprobs) >= 1:
+                    activation_logprobs = activation_top_logprobs[0]
+                elif len(activation_top_logprobs) == 0:
+                    activation_logprobs = {'0': -10, '1': -10, '2': -10, '3': -10, '<|endoftext|>': -1, '4': -10, ' 5': -10, '6': -10, '7': -10, '8': -10, '9': -10, '\n': -10, '\t': -10, '10': -10, ' ': -10}
+                (
+                    norm_probabilities_by_distribution_value,
+                    expected_value,
+                ) = compute_predicted_activation_stats_for_token(
+                    activation_logprobs,
+                )
+                distribution_values.append(
+                    [float(v) for v in norm_probabilities_by_distribution_value.keys()]
+                )
+                distribution_probabilities.append(
+                    list(norm_probabilities_by_distribution_value.values())
+                )
+                expected_values.append(expected_value)
 
+            result = SequenceSimulation(
+                tokens=list(tokens),  # SequenceSimulation expects List type
+                expected_activations=expected_values,
+                activation_scale=ActivationScale.SIMULATED_NORMALIZED_ACTIVATIONS,
+                distribution_values=distribution_values,
+                distribution_probabilities=distribution_probabilities,
+            )
+            logger.debug("result in score_explanation_by_activations is %s", result)
+            return result
+        
+    async def _get_activation_stats_for_single_token_llama(
+        self,
+        tokens: Sequence[str],
+        explanation: str,
+        token_index_to_score: int,
+    ) -> dict:
+        print("now _get_activation_stats_for_single_token_llama")
+        messages = self.make_single_token_simulation_prompt_llama(
+            tokens,
+            explanation,
+            token_index_to_score=token_index_to_score,
+        )
+        # 如果模型的 pad_token 未设置，显式指定为 eos_token
+        if self.tokenizer.pad_token is None:
+            self.tokenizer.pad_token = self.tokenizer.eos_token
+
+        input = self.tokenizer.apply_chat_template(
+            messages,
+            add_generation_prompt=True,
+            return_tensors="pt",
+            return_dict=True,
+        ).to(self.model.device)
+
+        terminators = [
+            self.tokenizer.eos_token_id,
+            self.tokenizer.convert_tokens_to_ids("<|eot_id|>")
+        ]
+
+        # 生成 attention mask
+        attention_mask = input['attention_mask']
+        print("start generating")
+        outputs = self.model.generate(
+            input['input_ids'],
+            attention_mask=attention_mask,  # 显式提供 attention mask
+            max_new_tokens=1,
+            eos_token_id=terminators,
+            pad_token_id=self.tokenizer.pad_token_id,  # 明确设置 pad token id
+            do_sample=True,
+            temperature=0.6,
+            top_p=0.9,
+            return_legacy_cache=True,  # 显式启用旧的缓存返回格式
+            output_scores=True,
+            return_dict_in_generate=True,
+        )
+        # print(f"{outputs['scores']=}")
+        print(f"{len(outputs.sequences[0])=}")
+        scores = outputs['scores'][0][0]
+        # top_scores, top_scores_indices = torch.topk(scores, 15)
+        # print(f"{top_scores=}")
+        # print(f"{top_scores_indices=}")
+        # assert len(scores) == 1, f'in _get_activation_stats_for_single_token_llama, {len(outputs.scores)=}'
+        logits = scores  # 获取生成的 logits
+        logprobs = torch.nn.functional.log_softmax(logits, dim=-1)  # 转换为 logprobs
+        
+        # 获取前 15 个最大 logprobs 及其对应的 token
+        top_k = 15
+        top_values, top_indices = torch.topk(logprobs, top_k)
+        top_tokens = self.tokenizer.convert_ids_to_tokens(top_indices.tolist())
+        
+        # 返回包含前 15 个最大 logprobs 的字典
+        top_logprobs = {top_tokens[i]: top_values[i].item() for i in range(top_k)}
+        print(f"{top_logprobs=}")
+        
+        return top_logprobs
+    
     async def _get_activation_stats_for_single_token(
         self,
         tokens: Sequence[str],
@@ -508,6 +655,47 @@ Last token activation, considering the token in the context in which it appeared
             prompt_builder.add_message(
                 Role.ASSISTANT, str(normalized_activations[-1]) + ("" if end_of_prompt else "\n\n")
             )
+
+    def _add_single_token_simulation_subprompt_llama(
+        self,
+        messages: list[dict],
+        activation_record: ActivationRecord,
+        neuron_index: int,
+        explanation: str,
+        token_index_to_score: int,
+        end_of_prompt: bool,
+    ) -> None:
+        trimmed_activation_record = ActivationRecord(
+            tokens=activation_record.tokens[: token_index_to_score + 1],
+            activations=activation_record.activations[: token_index_to_score + 1],
+        )
+
+        messages.append({
+            "role": "user",
+            "content": 
+            f"""
+Neuron {neuron_index}
+Explanation of neuron {neuron_index} behavior: {EXPLANATION_PREFIX} {explanation.strip()}
+Text:
+{"".join(trimmed_activation_record.tokens)}
+
+Last token in the text:
+{trimmed_activation_record.tokens[-1]}
+
+Last token activation, considering the token in the context in which it appeared in the text:
+""",
+        })
+
+        if not end_of_prompt:
+            normalized_activations = normalize_activations(
+                trimmed_activation_record.activations, calculate_max_activation([activation_record])
+            )
+            messages.append({
+                "role": "assistant",
+                "content": str(normalized_activations[-1]) + ("" if end_of_prompt else "\n\n")
+            })
+        return messages
+
 
     def make_single_token_simulation_prompt(
         self,
@@ -573,6 +761,74 @@ The activation format is token<tab>activation, and activations range from 0 to 1
             end_of_prompt=True,
         )
         return prompt_builder.build(self.prompt_format, allow_extra_system_messages=True)
+
+    def make_single_token_simulation_prompt_llama(
+        self,
+        tokens: Sequence[str],
+        explanation: str,
+        token_index_to_score: int,
+    ) -> Union[str, list[HarmonyMessage]]:
+        """Make a few-shot prompt for predicting the neuron's activation on a single token."""
+        assert explanation != ""
+        messages = []
+        messages.append({
+            "role": "system",
+            "content": 
+            """We're studying neurons in a neural network. Each neuron looks for some particular thing in a short document. Look at  an explanation of what the neuron does, and try to predict its activations on a particular token.
+
+The activation format is token<tab>activation, and activations range from 0 to 10. Most activations will be 0.
+
+""",
+        })
+
+        few_shot_examples = self.few_shot_example_set.get_examples()
+        for i, example in enumerate(few_shot_examples):
+            messages.append({
+                "role": "user",
+                "content":
+                f"Neuron {i + 1}\nExplanation of neuron {i + 1} behavior: {EXPLANATION_PREFIX} "
+                f"{example.explanation}\n",
+            })
+            formatted_activation_records = format_activation_records(
+                example.activation_records,
+                calculate_max_activation(example.activation_records),
+                start_indices=None,
+            )
+            messages.append({
+                "role": "assistant",
+                "content": f"Activations: {formatted_activation_records}\n\n",
+            })
+
+        messages.append({
+            "role": "system",
+            "content": 
+            "Now, we're going predict the activation of a new neuron on a single token, "
+            "following the same rules as the examples above. Activations still range from 0 to 10.",
+        })
+        single_token_example = self.few_shot_example_set.get_single_token_prediction_example()
+        assert single_token_example.token_index_to_score is not None
+        messages = self._add_single_token_simulation_subprompt_llama(
+            messages,
+            single_token_example.activation_records[0],
+            len(few_shot_examples) + 1,
+            explanation,
+            token_index_to_score=single_token_example.token_index_to_score,
+            end_of_prompt=False,
+        )
+
+        activation_record = ActivationRecord(
+            tokens=list(tokens[: token_index_to_score + 1]),  # ActivationRecord expects List type.
+            activations=[0.0] * len(tokens),
+        )
+        messages = self._add_single_token_simulation_subprompt_llama(
+            messages,
+            activation_record,
+            len(few_shot_examples) + 2,
+            explanation,
+            token_index_to_score,
+            end_of_prompt=True,
+        )
+        return messages
 
 
 def _format_record_for_logprob_free_simulation(
