@@ -1,0 +1,248 @@
+neuron_records_path='/data/jqliu/ML_jq/nanoGPT/activations/ori_136000it/neuron_records_featuress.json'
+random_neuron_indices=[654, 114, 25, 759, 281, 250, 228, 142, 754, 104, 692, 758, 558, 89, 604, 432, 32, 30, 95, 223, 238, 517, 616, 27, 574, 203, 733, 665, 718, 429, 225, 459, 603, 284, 6, 163, 714, 348, 159, 220, 344, 94, 389, 99, 367, 352, 618, 270]
+=========================
+now evaluating feature_654
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 654 explanation: specific numeric values and common patterns within a string of text.
+Neuron 654 score: -0.01
+now evaluating feature_114
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 114 explanation: specific names and associated titles or locations.
+Neuron 114 score: 0.27
+now evaluating feature_25
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 25 explanation: mentions of governmental and legal actions or entities.
+Neuron 25 score: 0.29
+now evaluating feature_759
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 759 explanation:  geographic locations, with a frequency of countries and places.
+Neuron 759 score: 0.14
+now evaluating feature_281
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 281 explanation: phrases pertaining to political positions, actions or intentions.
+Neuron 281 score: 0.11
+now evaluating feature_250
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 250 explanation: words or components of words associated with organizations or industries such as medical, legal, media or sports.
+Neuron 250 score: 0.27
+now evaluating feature_228
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 228 explanation: abbreviations and numerical value with related text.
+Neuron 228 score: 0.24
+now evaluating feature_142
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 142 explanation: parts of words, often at the end or in the middle, particularly single letters or two-letter combinations.
+Neuron 142 score: 0.10
+now evaluating feature_754
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 754 explanation: names of people, specifically those associated with professional sports.
+Neuron 754 score: 0.32
+now evaluating feature_104
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 104 explanation: mentions of social media actions, like following on Facebook.
+Neuron 104 score: 0.09
+now evaluating feature_692
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 692 explanation: names of political figures and related terms.
+Neuron 692 score: 0.36
+now evaluating feature_758
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 758 explanation:  names of persons, organizations, and places.
+Neuron 758 score: 0.12
+now evaluating feature_558
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 558 explanation: words relating to television shows, movies, and media entities.
+Neuron 558 score: 0.23
+now evaluating feature_89
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 89 explanation: specific proper names or phrases, particularly those pertaining to cultural or social media aspects.
+Neuron 89 score: 0.00
+now evaluating feature_604
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 604 explanation: words related to public events and incidents.
+Neuron 604 score: -0.06
+now evaluating feature_432
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 432 explanation: words and phrases related to titles, rankings, scores, and measurements.
+Neuron 432 score: 0.09
+now evaluating feature_32
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 32 explanation: copyright declarations, especially those related to media publication restrictions.
+Neuron 32 score: 0.46
+now evaluating feature_30
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 30 explanation: parts of proper names, specifically surnames.
+Neuron 30 score: 0.09
+now evaluating feature_95
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 95 explanation: words associated with acts of disrespect or defacement.
+Neuron 95 score: 0.18
+now evaluating feature_223
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 223 explanation: names of specific individuals, often in the context of sports or politics.
+Neuron 223 score: 0.38
+now evaluating feature_238
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 238 explanation: parts of sentences that mention the creation or modification of documents, with a specific focus on digital methods.
+Neuron 238 score: 0.29
+now evaluating feature_517
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 517 explanation: names of key political figures.
+Neuron 517 score: 0.24
+now evaluating feature_616
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 616 explanation: names of people and places.
+Neuron 616 score: 0.10
+now evaluating feature_27
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 27 explanation: instances of the symbol '&', possibly in the context of news or radio program names.
+Neuron 27 score: 0.15
+now evaluating feature_574
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 574 explanation: medical terminology and names of people.
+Neuron 574 score: 0.14
+now evaluating feature_203
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 203 explanation: references to management roles, particularly within a sports context.
+Neuron 203 score: 0.05
+now evaluating feature_733
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 733 explanation:  male names.
+Neuron 733 score: 0.10
+now evaluating feature_665
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 665 explanation: people's full names, particularly focusing on first name – last name combinations.
+Neuron 665 score: 0.15
+now evaluating feature_718
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 718 explanation: names or terms with Irish or Scottish origins.
+Neuron 718 score: 0.18
+now evaluating feature_429
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 429 explanation: parts of names or words that include the fragment "En".
+Neuron 429 score: 0.10
+now evaluating feature_225
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 225 explanation: names of people or brands that are separated into multiple tokens.
+Neuron 225 score: 0.14
+now evaluating feature_459
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 459 explanation:  geographic locations and proper names.
+Neuron 459 score: 0.19
+now evaluating feature_603
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 603 explanation: terms related to socio-political interactions and disputes.
+Neuron 603 score: 0.09
+now evaluating feature_284
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 284 explanation: names of organizations and institutions.
+Neuron 284 score: 0.15
+now evaluating feature_6
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 6 explanation:  strings of numbers, symbols, and letters, usually found in product and model names.
+Neuron 6 score: 0.21
+now evaluating feature_163
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 163 explanation: part of proper nouns or names.
+Neuron 163 score: 0.04
+now evaluating feature_714
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 714 explanation: social media or website addresses or naming formats.
+Neuron 714 score: 0.25
+now evaluating feature_348
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 348 explanation: news source citations and numerical data.
+Neuron 348 score: 0.21
+now evaluating feature_159
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 159 explanation: words related to families and familial relationships.
+Neuron 159 score: 0.19
+now evaluating feature_220
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 220 explanation: words related to reputational issues and disputes.
+Neuron 220 score: 0.30
+now evaluating feature_344
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 344 explanation: words and phrases related to conflict and competition.
+Neuron 344 score: 0.27
+now evaluating feature_94
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 94 explanation: geographical locations and names.
+Neuron 94 score: 0.50
+now evaluating feature_389
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 389 explanation: consonant clusters or complex syllable patterns within words, often related to proper names.
+Neuron 389 score: 0.13
+now evaluating feature_99
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 99 explanation: isolated letters or pairs of letters, especially at the ends of words.
+Neuron 99 score: -0.02
+now evaluating feature_367
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 367 explanation: short proper nouns, particularly those related to names and geographical locations.
+Neuron 367 score: 0.33
+now evaluating feature_352
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 352 explanation: sentences related to product advertisement, particularly those mentioning compensation for recommendations or advertising.
+Neuron 352 score: 0.01
+now evaluating feature_618
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 618 explanation: foreign words, names, and locations, often associated with Asia.
+Neuron 618 score: 0.13
+now evaluating feature_270
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 270 explanation: words and phrases related to scientific discovery, particularly in fields of astronomy and nuclear energy.
+Neuron 270 score: 0.41
+Finished
+
+Average score for 48 neurons: 0.18
+
+Results for each neuron:
+Neuron 654: Explanation: specific numeric values and common patterns within a string of text., Score: -0.01
+Neuron 114: Explanation: specific names and associated titles or locations., Score: 0.27
+Neuron 25: Explanation: mentions of governmental and legal actions or entities., Score: 0.29
+Neuron 759: Explanation:  geographic locations, with a frequency of countries and places., Score: 0.14
+Neuron 281: Explanation: phrases pertaining to political positions, actions or intentions., Score: 0.11
+Neuron 250: Explanation: words or components of words associated with organizations or industries such as medical, legal, media or sports., Score: 0.27
+Neuron 228: Explanation: abbreviations and numerical value with related text., Score: 0.24
+Neuron 142: Explanation: parts of words, often at the end or in the middle, particularly single letters or two-letter combinations., Score: 0.10
+Neuron 754: Explanation: names of people, specifically those associated with professional sports., Score: 0.32
+Neuron 104: Explanation: mentions of social media actions, like following on Facebook., Score: 0.09
+Neuron 692: Explanation: names of political figures and related terms., Score: 0.36
+Neuron 758: Explanation:  names of persons, organizations, and places., Score: 0.12
+Neuron 558: Explanation: words relating to television shows, movies, and media entities., Score: 0.23
+Neuron 89: Explanation: specific proper names or phrases, particularly those pertaining to cultural or social media aspects., Score: 0.00
+Neuron 604: Explanation: words related to public events and incidents., Score: -0.06
+Neuron 432: Explanation: words and phrases related to titles, rankings, scores, and measurements., Score: 0.09
+Neuron 32: Explanation: copyright declarations, especially those related to media publication restrictions., Score: 0.46
+Neuron 30: Explanation: parts of proper names, specifically surnames., Score: 0.09
+Neuron 95: Explanation: words associated with acts of disrespect or defacement., Score: 0.18
+Neuron 223: Explanation: names of specific individuals, often in the context of sports or politics., Score: 0.38
+Neuron 238: Explanation: parts of sentences that mention the creation or modification of documents, with a specific focus on digital methods., Score: 0.29
+Neuron 517: Explanation: names of key political figures., Score: 0.24
+Neuron 616: Explanation: names of people and places., Score: 0.10
+Neuron 27: Explanation: instances of the symbol '&', possibly in the context of news or radio program names., Score: 0.15
+Neuron 574: Explanation: medical terminology and names of people., Score: 0.14
+Neuron 203: Explanation: references to management roles, particularly within a sports context., Score: 0.05
+Neuron 733: Explanation:  male names., Score: 0.10
+Neuron 665: Explanation: people's full names, particularly focusing on first name – last name combinations., Score: 0.15
+Neuron 718: Explanation: names or terms with Irish or Scottish origins., Score: 0.18
+Neuron 429: Explanation: parts of names or words that include the fragment "En"., Score: 0.10
+Neuron 225: Explanation: names of people or brands that are separated into multiple tokens., Score: 0.14
+Neuron 459: Explanation:  geographic locations and proper names., Score: 0.19
+Neuron 603: Explanation: terms related to socio-political interactions and disputes., Score: 0.09
+Neuron 284: Explanation: names of organizations and institutions., Score: 0.15
+Neuron 6: Explanation:  strings of numbers, symbols, and letters, usually found in product and model names., Score: 0.21
+Neuron 163: Explanation: part of proper nouns or names., Score: 0.04
+Neuron 714: Explanation: social media or website addresses or naming formats., Score: 0.25
+Neuron 348: Explanation: news source citations and numerical data., Score: 0.21
+Neuron 159: Explanation: words related to families and familial relationships., Score: 0.19
+Neuron 220: Explanation: words related to reputational issues and disputes., Score: 0.30
+Neuron 344: Explanation: words and phrases related to conflict and competition., Score: 0.27
+Neuron 94: Explanation: geographical locations and names., Score: 0.50
+Neuron 389: Explanation: consonant clusters or complex syllable patterns within words, often related to proper names., Score: 0.13
+Neuron 99: Explanation: isolated letters or pairs of letters, especially at the ends of words., Score: -0.02
+Neuron 367: Explanation: short proper nouns, particularly those related to names and geographical locations., Score: 0.33
+Neuron 352: Explanation: sentences related to product advertisement, particularly those mentioning compensation for recommendations or advertising., Score: 0.01
+Neuron 618: Explanation: foreign words, names, and locations, often associated with Asia., Score: 0.13
+Neuron 270: Explanation: words and phrases related to scientific discovery, particularly in fields of astronomy and nuclear energy., Score: 0.41
