@@ -1,0 +1,254 @@
+=========================
+neuron_records_path='/data/jqliu/ML_jq/nanoGPT/activations/nonneg_feature_136000it/neuron_records_featuress.json'
+random_neuron_indices=[654, 114, 25, 759, 281, 250, 228, 142, 754, 104, 692, 758, 558, 89, 604, 432, 32, 30, 95, 223, 238, 517, 616, 27, 574, 203, 733, 665, 718, 429, 225, 459, 603, 284, 6, 163, 714, 348, 159, 220, 344, 94, 389, 99, 367, 352, 618, 270]
+=========================
+now evaluating feature_654
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 654 explanation: words and phrases related to electronics, technology, and digital interaction aspects.
+Neuron 654 score: -0.01
+now evaluating feature_114
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 114 explanation:  references to stage plays and theatrical performances.
+Neuron 114 score: 0.04
+now evaluating feature_25
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 25 explanation:  social media platforms and medical conditions.
+Neuron 25 score: 0.34
+now evaluating feature_759
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 759 explanation: proper nouns, specifically names and institutions.
+Neuron 759 score: 0.13
+now evaluating feature_281
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 281 explanation: names of people in positions of authority or power.
+Neuron 281 score: 0.03
+now evaluating feature_250
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 250 explanation:  names or identifiers of people or groups, especially in a sports or governmental context.
+Neuron 250 score: 0.14
+now evaluating feature_228
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 228 explanation: words and phrases related to political and military actions or conflicts.
+Neuron 228 score: 0.28
+now evaluating feature_142
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 142 explanation: references to and phrases related to constitutional law.
+Neuron 142 score: 0.67
+now evaluating feature_754
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 754 explanation: proper nouns and location names.
+Neuron 754 score: 0.18
+now evaluating feature_104
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 104 explanation: names of football players, particularly "Danny".
+Neuron 104 score: 0.35
+now evaluating feature_692
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 692 explanation:  terms and phrases related to sports and athletic performance.
+Neuron 692 score: 0.53
+now evaluating feature_758
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+=========================
+neuron_records_path='/data/jqliu/ML_jq/nanoGPT/activations/nonneg_feature_136000it/neuron_records_featuress.json'
+random_neuron_indices=[758, 558, 89, 604, 432, 32, 30, 95, 223, 238, 517, 616, 27, 574, 203, 733, 665, 718, 429, 225, 459, 603, 284, 6, 163, 714, 348, 159, 220, 344, 94, 389, 99, 367, 352, 618, 270]
+=========================
+now evaluating feature_758
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 758 explanation: words and phrases relevant to cultural or geographical origins.
+Neuron 758 score: 0.27
+now evaluating feature_558
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 558 explanation: names of people and organizations.
+Neuron 558 score: 0.08
+now evaluating feature_89
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 89 explanation: words, phrases, or patterns associated with technical or digital formats, specifically referencing Microsoft office program schemas.
+Neuron 89 score: 0.24
+now evaluating feature_604
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 604 explanation:  references to concepts and terms related to political candidates and religious ideologies.
+Neuron 604 score: 0.45
+now evaluating feature_432
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 432 explanation: common two-letter combinations used in longer words.
+Neuron 432 score: 0.18
+now evaluating feature_32
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 32 explanation: parts of names and the mention of individuals.
+Neuron 32 score: 0.02
+now evaluating feature_30
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 30 explanation: proper names, acronyms, and capitalized words.
+Neuron 30 score: 0.11
+now evaluating feature_95
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 95 explanation: topics related to time, particularly hours in the context of events or schedules.
+Neuron 95 score: 0.24
+now evaluating feature_223
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 223 explanation: political titles, roles, and actions.
+Neuron 223 score: 0.17
+now evaluating feature_238
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 238 explanation: words related to space exploration and political figures.
+Neuron 238 score: 0.35
+now evaluating feature_517
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 517 explanation: proper nouns and numbers related to dates and financial amounts.
+Neuron 517 score: 0.01
+now evaluating feature_616
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 616 explanation: names of people, places, and organizations.
+Neuron 616 score: 0.23
+now evaluating feature_27
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 27 explanation: words and phrases associated with defense and national security.
+Neuron 27 score: 0.41
+now evaluating feature_574
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 574 explanation: terms and phrases associated with soccer matches and results.
+Neuron 574 score: 0.54
+now evaluating feature_203
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 203 explanation: phrases in political news articles that mention key individuals and their roles.
+Neuron 203 score: 0.36
+now evaluating feature_733
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 733 explanation: mentions of specific dates and political events.
+Neuron 733 score: 0.38
+now evaluating feature_665
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 665 explanation: words related to group efforts and processes.
+Neuron 665 score: 0.24
+now evaluating feature_718
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 718 explanation: references to the date of significant historical events, specifically "September 11".
+Neuron 718 score: 0.28
+now evaluating feature_429
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 429 explanation: words and phrases related to budgetary and financial matters.
+Neuron 429 score: 0.27
+now evaluating feature_225
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 225 explanation:  political terms and references, especially those related to change or action.
+Neuron 225 score: 0.36
+now evaluating feature_459
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 459 explanation: web addresses and keywords related to digital and visual artwork.
+Neuron 459 score: 0.29
+now evaluating feature_603
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 603 explanation: words and phrases related to political events and relevant entities.
+Neuron 603 score: 0.55
+now evaluating feature_284
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 284 explanation: text related to software updates and releases.
+Neuron 284 score: 0.40
+now evaluating feature_6
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 6 explanation: proper names and locations.
+Neuron 6 score: 0.15
+now evaluating feature_163
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 163 explanation: references to political actions and legal actions taken against political figures.
+Neuron 163 score: 0.21
+now evaluating feature_714
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 714 explanation:  vocabulary related to video content and hosting, particularly unavailable videos and alternative video links.
+Neuron 714 score: 0.51
+now evaluating feature_348
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 348 explanation: mentions of iconic locations or well-known personalities.
+Neuron 348 score: 0.41
+now evaluating feature_159
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 159 explanation: phrases indicating more than one or an additional element or aspect.
+Neuron 159 score: 0.11
+now evaluating feature_220
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 220 explanation: words related to computer science and artificial intelligence.
+Neuron 220 score: 0.20
+now evaluating feature_344
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 344 explanation: specific mentions of fairness or justice, particularly in a political context.
+Neuron 344 score: 0.36
+now evaluating feature_94
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 94 explanation: mentions of government bodies and their actions related to family concerns and public health.
+Neuron 94 score: 0.48
+now evaluating feature_389
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 389 explanation: mentions of the word "Arsenal" and key players associated with the club.
+Neuron 389 score: 0.03
+now evaluating feature_99
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 99 explanation: components of financial transactions or contributions.
+Neuron 99 score: 0.04
+now evaluating feature_367
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 367 explanation: references to the U.S. Department of Justice, often abbreviated as DOJ.
+Neuron 367 score: 0.30
+now evaluating feature_352
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 352 explanation: words and phrases related to laws, rights and constitutional amendments.
+Neuron 352 score: 0.59
+now evaluating feature_618
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 618 explanation: initials or abbreviations of larger organizations or names.
+Neuron 618 score: 0.29
+now evaluating feature_270
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 270 explanation: references to police or law enforcement involved shootings.
+Neuron 270 score: 0.62
+Finished
+
+Average score for 48 neurons: 0.22
+
+Results for each neuron:
+Neuron 758: Explanation: words and phrases relevant to cultural or geographical origins., Score: 0.27
+Neuron 558: Explanation: names of people and organizations., Score: 0.08
+Neuron 89: Explanation: words, phrases, or patterns associated with technical or digital formats, specifically referencing Microsoft office program schemas., Score: 0.24
+Neuron 604: Explanation:  references to concepts and terms related to political candidates and religious ideologies., Score: 0.45
+Neuron 432: Explanation: common two-letter combinations used in longer words., Score: 0.18
+Neuron 32: Explanation: parts of names and the mention of individuals., Score: 0.02
+Neuron 30: Explanation: proper names, acronyms, and capitalized words., Score: 0.11
+Neuron 95: Explanation: topics related to time, particularly hours in the context of events or schedules., Score: 0.24
+Neuron 223: Explanation: political titles, roles, and actions., Score: 0.17
+Neuron 238: Explanation: words related to space exploration and political figures., Score: 0.35
+Neuron 517: Explanation: proper nouns and numbers related to dates and financial amounts., Score: 0.01
+Neuron 616: Explanation: names of people, places, and organizations., Score: 0.23
+Neuron 27: Explanation: words and phrases associated with defense and national security., Score: 0.41
+Neuron 574: Explanation: terms and phrases associated with soccer matches and results., Score: 0.54
+Neuron 203: Explanation: phrases in political news articles that mention key individuals and their roles., Score: 0.36
+Neuron 733: Explanation: mentions of specific dates and political events., Score: 0.38
+Neuron 665: Explanation: words related to group efforts and processes., Score: 0.24
+Neuron 718: Explanation: references to the date of significant historical events, specifically "September 11"., Score: 0.28
+Neuron 429: Explanation: words and phrases related to budgetary and financial matters., Score: 0.27
+Neuron 225: Explanation:  political terms and references, especially those related to change or action., Score: 0.36
+Neuron 459: Explanation: web addresses and keywords related to digital and visual artwork., Score: 0.29
+Neuron 603: Explanation: words and phrases related to political events and relevant entities., Score: 0.55
+Neuron 284: Explanation: text related to software updates and releases., Score: 0.40
+Neuron 6: Explanation: proper names and locations., Score: 0.15
+Neuron 163: Explanation: references to political actions and legal actions taken against political figures., Score: 0.21
+Neuron 714: Explanation:  vocabulary related to video content and hosting, particularly unavailable videos and alternative video links., Score: 0.51
+Neuron 348: Explanation: mentions of iconic locations or well-known personalities., Score: 0.41
+Neuron 159: Explanation: phrases indicating more than one or an additional element or aspect., Score: 0.11
+Neuron 220: Explanation: words related to computer science and artificial intelligence., Score: 0.20
+Neuron 344: Explanation: specific mentions of fairness or justice, particularly in a political context., Score: 0.36
+Neuron 94: Explanation: mentions of government bodies and their actions related to family concerns and public health., Score: 0.48
+Neuron 389: Explanation: mentions of the word "Arsenal" and key players associated with the club., Score: 0.03
+Neuron 99: Explanation: components of financial transactions or contributions., Score: 0.04
+Neuron 367: Explanation: references to the U.S. Department of Justice, often abbreviated as DOJ., Score: 0.30
+Neuron 352: Explanation: words and phrases related to laws, rights and constitutional amendments., Score: 0.59
+Neuron 618: Explanation: initials or abbreviations of larger organizations or names., Score: 0.29
+Neuron 270: Explanation: references to police or law enforcement involved shootings., Score: 0.62
+
+0.27583
