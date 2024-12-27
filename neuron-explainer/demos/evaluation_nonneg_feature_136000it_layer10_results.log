@@ -1,0 +1,122 @@
+=========================
+neuron_records_path='/data/jqliu/ML_jq/nanoGPT/activations/nonneg_feature_136000it/neuron_records_neurons.json'
+random_neuron_indices=[2619, 456, 102, 3037, 1126, 1003, 914, 571, 3016, 419, 2771, 3033, 2233, 356, 2418, 1728, 130, 122, 383, 895, 952, 2069, 2465, 108]
+=========================
+now evaluating feature_2619
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 2619 explanation: words and phrases related to achievement or lack thereof.
+Neuron 2619 score: 0.26
+now evaluating feature_456
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 456 explanation: actions of posting, sharing or linking content online.
+Neuron 456 score: 0.38
+now evaluating feature_102
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 102 explanation:  references to numbered series or parts within a sequence.
+Neuron 102 score: 0.17
+now evaluating feature_3037
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 3037 explanation: words related to emergencies, dangers or threats.
+Neuron 3037 score: 0.21
+now evaluating feature_1126
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 1126 explanation: sentences conveying aspects of employment, earnings, and making a living.
+Neuron 1126 score: 0.29
+now evaluating feature_1003
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 1003 explanation:  numerical values, particularly related to duration or counts.
+Neuron 1003 score: 0.39
+now evaluating feature_914
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 914 explanation: words and phrases associated with data, numbers, and analysis.
+Neuron 914 score: 0.08
+now evaluating feature_571
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 571 explanation: historical references, specifically names and dates related to royal, religious, or significant figures in history.
+Neuron 571 score: 0.55
+now evaluating feature_3016
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 3016 explanation: prepositions indicating continuous activities or processes.
+Neuron 3016 score: 0.18
+now evaluating feature_419
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 419 explanation: excerpts that contain location names, particularly abbreviated locations such as 'St' for 'Street' or 'Saint'.
+Neuron 419 score: 0.43
+now evaluating feature_2771
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 2771 explanation: parentheses, especially in the context of listing attributes or specifications.
+Neuron 2771 score: 0.04
+now evaluating feature_3033
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 3033 explanation: words associated with authorship or attribution.
+Neuron 3033 score: 0.20
+now evaluating feature_2233
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 2233 explanation: numeric values and terms related to competitive sports statistics or measurements.
+Neuron 2233 score: 0.48
+now evaluating feature_356
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 356 explanation:  words and phrases related to security threats and responses.
+Neuron 356 score: 0.26
+now evaluating feature_2418
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 2418 explanation: timestamps and specific date-related information.
+Neuron 2418 score: 0.57
+now evaluating feature_1728
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 1728 explanation:  phrases related to the completion or ending of events or actions.
+=========================
+neuron_records_path='/data/jqliu/ML_jq/nanoGPT/activations/nonneg_feature_136000it/neuron_records_neurons.json'
+random_neuron_indices=[1728, 130, 122, 383, 895, 952, 2069, 2465, 108]
+=========================
+now evaluating feature_1728
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 1728 explanation: words related to significant events or actions.
+Neuron 1728 score: 0.18
+now evaluating feature_130
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 130 explanation: instances of date and time references.
+Neuron 130 score: 0.36
+now evaluating feature_122
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 122 explanation: Japanese names or words.Neuron 122 score: 0.54
+now evaluating feature_383
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 383 explanation: prepositions and articles, especially in the context of locations.
+Neuron 383 score: 0.27
+now evaluating feature_895
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 895 explanation: financial terms or phrases related to monetary amounts or value.
+Neuron 895 score: 0.48
+now evaluating feature_952
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 952 explanation: phrases related to sports, particularly football and player actions.
+Neuron 952 score: 0.40
+now evaluating feature_2069
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 2069 explanation: descriptive and evaluative terms related to conditions or characteristics.
+Neuron 2069 score: 0.10
+now evaluating feature_2465
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 2465 explanation:  phrases that indicate a process or action happening, especially prior to an event or in the background.
+Neuron 2465 score: 0.24
+now evaluating feature_108
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 108 explanation: phrases indicating timelines or progression, specifically phrases including "so far".
+Neuron 108 score: 0.14
+Finished
+
+Average score for 24 neurons: 0.11
+
+Results for each neuron:
+Neuron 1728: Explanation: words related to significant events or actions., Score: 0.18
+Neuron 130: Explanation: instances of date and time references., Score: 0.36
+Neuron 122: Explanation: Japanese names or words., Score: 0.54
+Neuron 383: Explanation: prepositions and articles, especially in the context of locations., Score: 0.27
+Neuron 895: Explanation: financial terms or phrases related to monetary amounts or value., Score: 0.48
+Neuron 952: Explanation: phrases related to sports, particularly football and player actions., Score: 0.40
+Neuron 2069: Explanation: descriptive and evaluative terms related to conditions or characteristics., Score: 0.10
+Neuron 2465: Explanation:  phrases that indicate a process or action happening, especially prior to an event or in the background., Score: 0.24
+Neuron 108: Explanation: phrases indicating timelines or progression, specifically phrases including "so far"., Score: 0.14
+
+0.296

@@ -1,0 +1,129 @@
+=========================
+neuron_records_path='/data/jqliu/ML_jq/nanoGPT/activations/ori_finetune_nonneg_feature_218000it/neuron_records_featuress.json'
+random_neuron_indices=[654, 114, 25, 759, 281, 250, 228, 142, 754, 104, 692, 758, 558, 89, 604, 432, 32, 30, 95, 223, 238, 517, 616, 27]
+=========================
+now evaluating feature_654
+=========================
+neuron_records_path='/data/jqliu/ML_jq/nanoGPT/activations/ori_finetune_nonneg_feature_218000it/neuron_records_featuress.json'
+random_neuron_indices=[654, 114, 25, 759, 281, 250, 228, 142, 754, 104, 692, 758, 558, 89, 604, 432, 32, 30, 95, 223, 238, 517, 616, 27]
+=========================
+now evaluating feature_654
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 654 explanation:  parts of names that start with 'M' or 'N' and may be abbreviated.
+Neuron 654 score: 0.18
+now evaluating feature_114
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 114 explanation: words and phrases related to academic research papers, especially those discussing labor studies and economics.
+Neuron 114 score: 0.26
+now evaluating feature_25
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 25 explanation: references to political figures, especially in the context of potential conflicts or disagreements.
+Neuron 25 score: 0.33
+now evaluating feature_759
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 759 explanation: common structures in letter or numeric sequences and specific name mentions.
+Neuron 759 score: 0.09
+now evaluating feature_281
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 281 explanation: identifiers and references related to subscriptions or loyal customers.
+Neuron 281 score: 0.20
+now evaluating feature_250
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 250 explanation: references to locations, especially residences and places in Texas.
+Neuron 250 score: -0.02
+now evaluating feature_228
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 228 explanation: references to communication, particularly of personal or sensitive information.
+Neuron 228 score: 0.03
+now evaluating feature_142
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 142 explanation: digital communication and technology-related terms.
+Neuron 142 score: 0.08
+now evaluating feature_754
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 754 explanation: names of people and teams related to sports.
+Neuron 754 score: 0.16
+now evaluating feature_104
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 104 explanation: proper names and titles, particularly in the context of sports and events.
+Neuron 104 score: 0.31
+now evaluating feature_692
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 692 explanation: individual names and personal pronouns.
+Neuron 692 score: 0.16
+now evaluating feature_758
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 758 explanation: words or phrases related to digital media and technology.
+Neuron 758 score: 0.15
+now evaluating feature_558
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 558 explanation: mentions of individual names, particularly those related to tech industry figures.
+Neuron 558 score: 0.19
+now evaluating feature_89
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 89 explanation: instructions related to website embedding or sharing, particularly in the context of social media.
+Neuron 89 score: 0.46
+now evaluating feature_604
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 604 explanation: mentions of dates and digital content such as podcasts and downloads.
+Neuron 604 score: 0.40
+now evaluating feature_432
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 432 explanation: personal pronouns and names, as well as verbs associated with actions or changes.
+Neuron 432 score: 0.16
+now evaluating feature_32
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 32 explanation: elements of a web URL and spaces between lines of text.
+Neuron 32 score: 0.12
+now evaluating feature_30
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 30 explanation: individual or groups of characters that make up parts of proper nouns or specific titles.
+=========================
+neuron_records_path='/data/jqliu/ML_jq/nanoGPT/activations/ori_finetune_nonneg_feature_218000it/neuron_records_featuress.json'
+random_neuron_indices=[30, 95, 223, 238, 517, 616, 27]
+=========================
+now evaluating feature_30
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 30 explanation: names of notable persons or entities.
+Neuron 30 score: 0.07
+now evaluating feature_95
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 95 explanation: signs of formal communication or negotiation.
+Neuron 95 score: 0.16
+now evaluating feature_223
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 223 explanation: names of people, particularly those holding positions of authority.
+Neuron 223 score: 0.24
+now evaluating feature_238
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 238 explanation: dates and time-related words.
+Neuron 238 score: 0.08
+now evaluating feature_517
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 517 explanation: proper names, particularly those that appear in the context of news reporting or political discussions.
+Neuron 517 score: 0.18
+now evaluating feature_616
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 616 explanation: terms and phrases related to politics, particularly United States politics.
+Neuron 616 score: 0.46
+now evaluating feature_27
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+
+
+0.193

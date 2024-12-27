@@ -2,14 +2,17 @@
 # helper functions.
 
 import math
+import json
 from dataclasses import dataclass, field
 from typing import List, Optional, Union
 
 import urllib.request
 import blobfile as bf
 import boostedblob as bbb
+import sys 
+sys.path.append("/home/jqliu/ML_jq/neuronExpainer/automated-interpretability/neuron-explainer")
 from neuron_explainer.fast_dataclasses import FastDataclass, loads, register_dataclass
-from neuron_explainer.azure import standardize_azure_url
+# from azure import standardize_azure_url
 
 
 @register_dataclass
@@ -22,6 +25,13 @@ class ActivationRecord(FastDataclass):
     activations: List[float]
     """Raw activation values for the neuron on each token in the text sequence."""
 
+    def to_dict(self):
+        return {
+            "dataclass_name": "ActivationRecord",
+            "tokens": self.tokens,
+            "activations": self.activations
+        }
+
 
 @register_dataclass
 @dataclass
@@ -32,6 +42,13 @@ class NeuronId(FastDataclass):
     """The index of layer the neuron is in. The first layer used during inference has index 0."""
     neuron_index: int
     """The neuron's index within in its layer. Indices start from 0 in each layer."""
+
+    def to_dict(self):
+        return {
+            "dataclass_name": "NeuronId",
+            "layer_index": self.layer_index,
+            "neuron_index": self.neuron_index
+        }
 
 
 def _check_slices(
@@ -210,26 +227,53 @@ class NeuronRecord(FastDataclass):
                 self._get_random_activation_slices(activation_record_slice_params)["test"]
             ]
         )
+    
+    def to_dict(self):
+        return {
+            "dataclass_name": "NeuronRecord",
+            "neuron_id": self.neuron_id.to_dict(),
+            "random_sample": [record.to_dict() for record in self.random_sample],
+            "most_positive_activation_records": [record.to_dict() for record in self.most_positive_activation_records],
+            "mean": self.mean,
+            "variance": self.variance,
+            "skewness": self.skewness,
+            "kurtosis": self.kurtosis
+        }
 
 
-def neuron_exists(
-    dataset_path: str, layer_index: Union[str, int], neuron_index: Union[str, int]
-) -> bool:
-    """Return whether the specified neuron exists."""
-    file = bf.join(dataset_path, "neurons", str(layer_index), f"{neuron_index}.json")
-    return bf.exists(file)
+# def neuron_exists(
+#     dataset_path: str, layer_index: Union[str, int], neuron_index: Union[str, int]
+# ) -> bool:
+#     """Return whether the specified neuron exists."""
+#     file = bf.join(dataset_path, "neurons", str(layer_index), f"{neuron_index}.json")
+#     return bf.exists(file)
 
 
+# def load_neuron(
+#     layer_index: Union[str, int],
+#     neuron_index: Union[str, int],
+#     dataset_path: str = "https://openaipublic.blob.core.windows.net/neuron-explainer/data/collated-activations",
+# ) -> NeuronRecord:
+#     """Load the NeuronRecord for the specified neuron."""
+#     url = "/".join([dataset_path, str(layer_index), f"{neuron_index}.json"])
+#     url = standardize_azure_url(url)
+#     with urllib.request.urlopen(url) as f:
+#         neuron_record = loads(f.read())
+#         if not isinstance(neuron_record, NeuronRecord):
+#             raise ValueError(
+#                 f"Stored data incompatible with current version of NeuronRecord dataclass."
+#             )
+#         return neuron_record
+    
 def load_neuron(
-    layer_index: Union[str, int],
-    neuron_index: Union[str, int],
-    dataset_path: str = "https://openaipublic.blob.core.windows.net/neuron-explainer/data/collated-activations",
+    layer_index: int,
+    neuron_index: int,
+    neuron_records_path: str
 ) -> NeuronRecord:
     """Load the NeuronRecord for the specified neuron."""
-    url = "/".join([dataset_path, str(layer_index), f"{neuron_index}.json"])
-    url = standardize_azure_url(url)
-    with urllib.request.urlopen(url) as f:
-        neuron_record = loads(f.read())
+    with open(neuron_records_path, 'r', encoding='utf-8') as f:
+        neuron_records = json.load(f)
+        neuron_record = loads(neuron_records[f"layer_{layer_index}"][f"neuron_{neuron_index}"])
         if not isinstance(neuron_record, NeuronRecord):
             raise ValueError(
                 f"Stored data incompatible with current version of NeuronRecord dataclass."

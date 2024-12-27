@@ -1,0 +1,131 @@
+=========================
+neuron_records_path='/data/jqliu/ML_jq/nanoGPT/activations/ori_finetune_nonneg_feature_250000it/neuron_records_featuress.json'
+random_neuron_indices=[654, 114, 25, 759, 281, 250, 228, 142, 754, 104, 692, 758, 558, 89, 604, 432, 32, 30, 95, 223, 238, 517, 616, 27]
+=========================
+now evaluating feature_654
+HTTP Request: POST https://api.feidaapi.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 654 explanation: personal pronouns and names.
+Neuron 654 score: 0.01
+now evaluating feature_114
+HTTP Request: POST https://api.feidaapi.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 114 explanation: words related to newsletter signup and domestic sports news.
+Neuron 114 score: 0.29
+now evaluating feature_25
+HTTP Request: POST https://api.feidaapi.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 25 explanation: words related to different species and their habitats.
+Neuron 25 score: 0.18
+now evaluating feature_759
+HTTP Request: POST https://api.feidaapi.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 759 explanation: names or mentions related to fantasy characters, specifically from the Game of Thrones series.
+Neuron 759 score: 0.19
+now evaluating feature_281
+HTTP Request: POST https://api.feidaapi.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 281 explanation: formal titles and roles related to academia and legal professions.
+Neuron 281 score: 0.03
+now evaluating feature_250
+HTTP Request: POST https://api.feidaapi.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 250 explanation:  terms and phrases relating to news reporting and journalism.
+Neuron 250 score: 0.12
+now evaluating feature_228
+HTTP Request: POST https://api.feidaapi.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 228 explanation: words and phrases related to social media and digital communication.
+Neuron 228 score: 0.02
+now evaluating feature_142
+HTTP Request: POST https://api.feidaapi.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 142 explanation: names of people and places, often related to politics or science fiction.
+=========================
+neuron_records_path='/data/jqliu/ML_jq/nanoGPT/activations/ori_finetune_nonneg_feature_250000it/neuron_records_featuress.json'
+random_neuron_indices=[142, 754, 104, 692, 758, 558, 89, 604, 432, 32, 30, 95, 223, 238, 517, 616, 27]
+=========================
+now evaluating feature_142
+HTTP Request: POST https://api.feidaapi.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 142 explanation: punctuation and specific formatting characters in text, such as quotation marks and periods.
+Neuron 142 score: 0.06
+now evaluating feature_754
+HTTP Request: POST https://api.feidaapi.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 754 explanation: names or titles associated with political figures, particularly focusing on full names and formal titles.
+Neuron 754 score: 0.14
+now evaluating feature_104
+HTTP Request: POST https://api.feidaapi.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 104 explanation: words related to geographical locations.
+Neuron 104 score: 0.15
+now evaluating feature_692
+HTTP Request: POST https://api.feidaapi.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 692 explanation: terms associated with digital interaction or actions implying a response, such as "click," "votes," or "message sent."
+Neuron 692 score: 0.49
+now evaluating feature_758
+HTTP Request: POST https://api.feidaapi.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 758 explanation: proper nouns, especially names of people and titles.
+Neuron 758 score: 0.11
+now evaluating feature_558
+HTTP Request: POST https://api.feidaapi.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 558 explanation: words associated with political and international relations.
+Neuron 558 score: 0.14
+now evaluating feature_89
+HTTP Request: POST https://api.feidaapi.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 89 explanation: numbers or digit counts, especially in the context of data or statistics.
+Neuron 89 score: -0.02
+now evaluating feature_604
+HTTP Request: POST https://api.feidaapi.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 604 explanation: numbers and punctuation.
+Neuron 604 score: 0.06
+now evaluating feature_432
+HTTP Request: POST https://api.feidaapi.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 432 explanation: references to legal copyright notices and broadcast station codes.
+Neuron 432 score: 0.19
+now evaluating feature_32
+HTTP Request: POST https://api.feidaapi.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 32 explanation: expressions indicating time or dates.
+Neuron 32 score: 0.01
+now evaluating feature_30
+HTTP Request: POST https://api.feidaapi.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 30 explanation: proper nouns and titles associated with people.
+Neuron 30 score: 0.20
+now evaluating feature_95
+HTTP Request: POST https://api.feidaapi.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 95 explanation: mentions of 'Obama' and phrases indicating high interest or excitement, like 'viral'.
+Neuron 95 score: 0.13
+now evaluating feature_223
+HTTP Request: POST https://api.feidaapi.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 223 explanation: proper names, specifically personal names.
+Neuron 223 score: 0.19
+now evaluating feature_238
+HTTP Request: POST https://api.feidaapi.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 238 explanation: terms associated with U.S. political figures and related governmental activities.
+Neuron 238 score: 0.39
+now evaluating feature_517
+HTTP Request: POST https://api.feidaapi.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 517 explanation: proper nouns and titles related to people, especially those in the context of media or government.
+Neuron 517 score: 0.17
+now evaluating feature_616
+HTTP Request: POST https://api.feidaapi.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 616 explanation: words related to politics and health conditions.
+Neuron 616 score: 0.23
+now evaluating feature_27
+HTTP Request: POST https://api.feidaapi.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 27 explanation: words related to updates and changes.
+Neuron 27 score: 0.10
+Finished
+
+Average score for 48 neurons: 0.06
+
+Results for each neuron:
+Neuron 142: Explanation: punctuation and specific formatting characters in text, such as quotation marks and periods., Score: 0.06
+Neuron 754: Explanation: names or titles associated with political figures, particularly focusing on full names and formal titles., Score: 0.14
+Neuron 104: Explanation: words related to geographical locations., Score: 0.15
+Neuron 692: Explanation: terms associated with digital interaction or actions implying a response, such as "click," "votes," or "message sent.", Score: 0.49
+Neuron 758: Explanation: proper nouns, especially names of people and titles., Score: 0.11
+Neuron 558: Explanation: words associated with political and international relations., Score: 0.14
+Neuron 89: Explanation: numbers or digit counts, especially in the context of data or statistics., Score: -0.02
+Neuron 604: Explanation: numbers and punctuation., Score: 0.06
+Neuron 432: Explanation: references to legal copyright notices and broadcast station codes., Score: 0.19
+Neuron 32: Explanation: expressions indicating time or dates., Score: 0.01
+Neuron 30: Explanation: proper nouns and titles associated with people., Score: 0.20
+Neuron 95: Explanation: mentions of 'Obama' and phrases indicating high interest or excitement, like 'viral'., Score: 0.13
+Neuron 223: Explanation: proper names, specifically personal names., Score: 0.19
+Neuron 238: Explanation: terms associated with U.S. political figures and related governmental activities., Score: 0.39
+Neuron 517: Explanation: proper nouns and titles related to people, especially those in the context of media or government., Score: 0.17
+Neuron 616: Explanation: words related to politics and health conditions., Score: 0.23
+Neuron 27: Explanation: words related to updates and changes., Score: 0.10
+
+0.1492

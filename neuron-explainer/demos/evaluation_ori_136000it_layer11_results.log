@@ -1,0 +1,129 @@
+=========================
+neuron_records_path='/data/jqliu/ML_jq/nanoGPT/activations/ori_136000it/neuron_records_neurons.json'
+random_neuron_indices=[2619, 456, 102, 3037, 1126, 1003, 914, 571, 3016, 419, 2771, 3033, 2233, 356, 2418, 1728, 130, 122, 383, 895, 952, 2069, 2465, 108]
+=========================
+now evaluating feature_2619
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 2619 explanation: terms and concepts related to space and space exploration.
+Neuron 2619 score: 0.48
+now evaluating feature_456
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 456 explanation: words related to transportation and shipping processes.
+Neuron 456 score: 0.27
+now evaluating feature_102
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 102 explanation: references to legislative bodies, particularly focusing on the term 'Upper House.'
+Neuron 102 score: 0.12
+now evaluating feature_3037
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 3037 explanation: words associated with culture, legal terms, and professional roles.
+Neuron 3037 score: 0.14
+now evaluating feature_1126
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 1126 explanation: negative connotations related to inadequacy or scarcity.
+Neuron 1126 score: 0.17
+now evaluating feature_1003
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 1003 explanation: names of people and actions associated with them.
+Neuron 1003 score: 0.20
+now evaluating feature_914
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 914 explanation: references to body parts or components.
+Neuron 914 score: 0.43
+now evaluating feature_571
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 571 explanation: names of famous people and high-profile jobs.
+Neuron 571 score: 0.26
+now evaluating feature_3016
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 3016 explanation: names of people.
+Neuron 3016 score: 0.38
+now evaluating feature_419
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 419 explanation: specific details in text related to human health conditions and treatments.
+Neuron 419 score: 0.07
+now evaluating feature_2771
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 2771 explanation: words related to law enforcement and legal proceedings.
+Neuron 2771 score: 0.43
+now evaluating feature_3033
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 3033 explanation: geographical and potential location-based names.
+Neuron 3033 score: 0.53
+now evaluating feature_2233
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 2233 explanation: instances of special characters.
+Neuron 2233 score: 0.16
+now evaluating feature_356
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 356 explanation: personal names, especially those of public figures.
+Neuron 356 score: 0.22
+now evaluating feature_2418
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 2418 explanation:  numerical values, particularly in the context of periodic or scheduled events.
+Neuron 2418 score: 0.11
+now evaluating feature_1728
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 1728 explanation: instances related to game statistics and players' physical performance data.
+Neuron 1728 score: 0.22
+now evaluating feature_130
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 130 explanation: keywords associated with political figures and their official roles or positions.
+Neuron 130 score: 0.56
+now evaluating feature_122
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 122 explanation: names of cities and sports-related terms.
+Neuron 122 score: 0.33
+now evaluating feature_383
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 383 explanation: terms related to sports competitions and specific plays or actions within the game.
+Neuron 383 score: 0.41
+now evaluating feature_895
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 895 explanation: texts related to the acting industry, starring roles, and award presentations.
+Neuron 895 score: 0.38
+now evaluating feature_952
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 952 explanation: terms and phrases often used in legal and political contexts.
+Neuron 952 score: 0.43
+now evaluating feature_2069
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 2069 explanation: usernames or screen names from social media platforms.
+Neuron 2069 score: 0.46
+now evaluating feature_2465
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 2465 explanation: terms related to public roles or organizations.
+Neuron 2465 score: 0.09
+now evaluating feature_108
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 108 explanation: words related to personal titles or roles.
+Neuron 108 score: 0.15
+Finished
+
+Average score for 24 neurons: 0.29
+
+Results for each neuron:
+Neuron 2619: Explanation: terms and concepts related to space and space exploration., Score: 0.48
+Neuron 456: Explanation: words related to transportation and shipping processes., Score: 0.27
+Neuron 102: Explanation: references to legislative bodies, particularly focusing on the term 'Upper House.', Score: 0.12
+Neuron 3037: Explanation: words associated with culture, legal terms, and professional roles., Score: 0.14
+Neuron 1126: Explanation: negative connotations related to inadequacy or scarcity., Score: 0.17
+Neuron 1003: Explanation: names of people and actions associated with them., Score: 0.20
+Neuron 914: Explanation: references to body parts or components., Score: 0.43
+Neuron 571: Explanation: names of famous people and high-profile jobs., Score: 0.26
+Neuron 3016: Explanation: names of people., Score: 0.38
+Neuron 419: Explanation: specific details in text related to human health conditions and treatments., Score: 0.07
+Neuron 2771: Explanation: words related to law enforcement and legal proceedings., Score: 0.43
+Neuron 3033: Explanation: geographical and potential location-based names., Score: 0.53
+Neuron 2233: Explanation: instances of special characters., Score: 0.16
+Neuron 356: Explanation: personal names, especially those of public figures., Score: 0.22
+Neuron 2418: Explanation:  numerical values, particularly in the context of periodic or scheduled events., Score: 0.11
+Neuron 1728: Explanation: instances related to game statistics and players' physical performance data., Score: 0.22
+Neuron 130: Explanation: keywords associated with political figures and their official roles or positions., Score: 0.56
+Neuron 122: Explanation: names of cities and sports-related terms., Score: 0.33
+Neuron 383: Explanation: terms related to sports competitions and specific plays or actions within the game., Score: 0.41
+Neuron 895: Explanation: texts related to the acting industry, starring roles, and award presentations., Score: 0.38
+Neuron 952: Explanation: terms and phrases often used in legal and political contexts., Score: 0.43
+Neuron 2069: Explanation: usernames or screen names from social media platforms., Score: 0.46
+Neuron 2465: Explanation: terms related to public roles or organizations., Score: 0.09
+Neuron 108: Explanation: words related to personal titles or roles., Score: 0.15

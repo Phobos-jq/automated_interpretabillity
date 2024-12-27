@@ -1,0 +1,153 @@
+=========================
+neuron_records_path='/data/jqliu/ML_jq/nanoGPT/activations/nonneg_feature_136000it/neuron_records_neurons.json'
+random_neuron_indices=[2619, 456, 102, 3037, 1126, 1003, 914, 571, 3016, 419, 2771, 3033, 2233, 356, 2418, 1728, 130, 122, 383, 895, 952, 2069, 2465, 108]
+=========================
+now evaluating feature_2619
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 2619 explanation: words and numbers that are traditionally associated with formal writing, like introductory words and specific numbers.
+=========================
+neuron_records_path='/data/jqliu/ML_jq/nanoGPT/activations/nonneg_feature_136000it/neuron_records_neurons.json'
+random_neuron_indices=[2619, 456, 102, 3037, 1126, 1003, 914, 571, 3016, 419, 2771, 3033, 2233, 356, 2418, 1728, 130, 122, 383, 895, 952, 2069, 2465, 108]
+=========================
+now evaluating feature_2619
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 2619 explanation: numbers within texts and sentences.
+Neuron 2619 score: 0.02
+now evaluating feature_456
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 456 explanation: mentions of retro video gaming technology titles and hardware.
+Neuron 456 score: 0.54
+now evaluating feature_102
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 102 explanation: words or sequences related to numerical values and comparative descriptions.
+=========================
+neuron_records_path='/data/jqliu/ML_jq/nanoGPT/activations/nonneg_feature_136000it/neuron_records_neurons.json'
+random_neuron_indices=[102, 3037, 1126, 1003, 914, 571, 3016, 419, 2771, 3033, 2233, 356, 2418, 1728, 130, 122, 383, 895, 952, 2069, 2465, 108]
+=========================
+now evaluating feature_102
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 102 explanation: words or phrases that denote comparison or transition in time or degree.
+Neuron 102 score: -0.06
+now evaluating feature_3037
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 3037 explanation: phrases indicating a short period of time that has recently passed.
+Neuron 3037 score: 0.18
+now evaluating feature_1126
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 1126 explanation: words related to state or condition, changes, and discussions on responses or solutions.
+Neuron 1126 score: 0.18
+now evaluating feature_1003
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 1003 explanation: words related to political roles or titles.
+Neuron 1003 score: 0.20
+now evaluating feature_914
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 914 explanation: various names and titles, particularly in the context of fiction and fantasy.
+Neuron 914 score: 0.40
+now evaluating feature_571
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 571 explanation: references to political ideologies and revolutionary movements.
+Neuron 571 score: 0.61
+now evaluating feature_3016
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+
+=========================
+neuron_records_path='/data/jqliu/ML_jq/nanoGPT/activations/nonneg_feature_136000it/neuron_records_neurons.json'
+random_neuron_indices=[3016, 419, 2771, 3033, 2233, 356, 2418, 1728, 130, 122, 383, 895, 952, 2069, 2465, 108]
+=========================
+now evaluating feature_3016
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 3016 explanation: phrases that express uncertainty or a change in a situation.
+=========================
+neuron_records_path='/data/jqliu/ML_jq/nanoGPT/activations/nonneg_feature_136000it/neuron_records_neurons.json'
+random_neuron_indices=[3016, 419, 2771, 3033, 2233, 356, 2418, 1728, 130, 122, 383, 895, 952, 2069, 2465, 108]
+=========================
+now evaluating feature_3016
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 3016 explanation: transitional or connective words and phrases indicating a change or outcome.
+Neuron 3016 score: 0.05
+now evaluating feature_419
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 419 explanation: verbs indicating action or process.
+Neuron 419 score: 0.16
+now evaluating feature_2771
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 2771 explanation: phrases indicating gender inequality or classes in society.
+Neuron 2771 score: 0.11
+now evaluating feature_3033
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 3033 explanation: first-person expressions of regret or apology.
+Neuron 3033 score: 0.23
+now evaluating feature_2233
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 2233 explanation: phrases related to comic series, their issues, and their volumes.
+Neuron 2233 score: 0.65
+now evaluating feature_356
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 356 explanation: adjectives used in a positive context.
+Neuron 356 score: -0.01
+now evaluating feature_2418
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 2418 explanation: technical terms and concepts related to digital technology and media production.
+Neuron 2418 score: 0.43
+now evaluating feature_1728
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 1728 explanation: technical terms and phrases related to imaging, scanning or observing in scientific or technological contexts.
+Neuron 1728 score: 0.54
+now evaluating feature_130
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 130 explanation: mentions of city mayors.
+Neuron 130 score: 0.50
+now evaluating feature_122
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 122 explanation: special characters and accents used in foreign languages.
+Neuron 122 score: 0.38
+now evaluating feature_383
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 383 explanation: words related to societal tension, problems, and conflict.
+=========================
+neuron_records_path='/data/jqliu/ML_jq/nanoGPT/activations/nonneg_feature_136000it/neuron_records_neurons.json'
+random_neuron_indices=[383, 895, 952, 2069, 2465, 108]
+=========================
+now evaluating feature_383
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 383 explanation: words and phrases related to social and political conflict.
+Neuron 383 score: 0.10
+now evaluating feature_895
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 895 explanation: terms and references related to legal activities and sports scoring or statistics.
+Neuron 895 score: 0.19
+now evaluating feature_952
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 952 explanation: names, particularly those presented in brackets, quotes or with special characters.
+Neuron 952 score: 0.21
+now evaluating feature_2069
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 2069 explanation: instructions and procedures, especially related to cooking and sports plays.
+Neuron 2069 score: 0.25
+now evaluating feature_2465
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 2465 explanation: names of people, specifically in the context of sports.
+Neuron 2465 score: 0.34
+now evaluating feature_108
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 108 explanation: references to specific types of military vehicles or weapons.
+Neuron 108 score: 0.40
+Finished
+
+Average score for 24 neurons: 0.06
+
+Results for each neuron:
+Neuron 383: Explanation: words and phrases related to social and political conflict., Score: 0.10
+Neuron 895: Explanation: terms and references related to legal activities and sports scoring or statistics., Score: 0.19
+Neuron 952: Explanation: names, particularly those presented in brackets, quotes or with special characters., Score: 0.21
+Neuron 2069: Explanation: instructions and procedures, especially related to cooking and sports plays., Score: 0.25
+Neuron 2465: Explanation: names of people, specifically in the context of sports., Score: 0.34
+Neuron 108: Explanation: references to specific types of military vehicles or weapons., Score: 0.40
+
+0.275

@@ -4,8 +4,10 @@ import asyncio  # 用于运行异步函数
 import logging
 
 # 设置环境变量
-os.environ["OPENAI_API_KEY"] = "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"
-neuron_records_path = "/data/jqliu/ML_jq/nanoGPT/activations/ori_136000it/neuron_records_featuress.json"
+os.environ["OPENAI_API_KEY"] = "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"
+import sys 
+sys.path.append("/home/jqliu/ML_jq/neuronExpainer/automated-interpretability/neuron-explainer")
+neuron_records_path = "/data/jqliu/ML_jq/nanoGPT/activations/ori_136000it/neuron_records_neurons.json"
 
 from neuron_explainer.activations.activation_records import calculate_max_activation
 from neuron_explainer.activations.activations import ActivationRecordSliceParams, load_neuron
@@ -16,10 +18,10 @@ from neuron_explainer.explanations.scoring import simulate_and_score
 from neuron_explainer.explanations.simulator import ExplanationTokenByTokenSimulator
 
 # 设置日志配置，将所有输出保存到文件
-logging.basicConfig(filename='evaluation_ori_136000it_results.log', level=logging.INFO, format='%(message)s')
+logging.basicConfig(filename='evaluation_ori_136000it_layer10_results.log', level=logging.INFO, format='%(message)s')
 
 EXPLAINER_MODEL_NAME = "gpt-4"
-SIMULATOR_MODEL_NAME = "gpt-3.5-turbo-instruct"
+SIMULATOR_MODEL_NAME = "meta-llama/Meta-Llama-3-8B-Instruct"
 TEST_NUM = 24  # 要抽取测试的神经元数量
 SEED = 42  # 设置随机种子，确保可复现性
 
@@ -32,7 +34,7 @@ async def evaluate_neurons():
     total_score = 0.0
 
     # 随机抽取神经元编号
-    random_neuron_indices = random.sample(range(768), TEST_NUM)
+    random_neuron_indices = random.sample(range(3072), TEST_NUM)
     logging.info("=========================")
     logging.info(f"{neuron_records_path=}")
     logging.info(f"{random_neuron_indices=}")
@@ -47,7 +49,7 @@ async def evaluate_neurons():
         print(f"now evaluating feature_{neuron_idx}")        
         
         # 加载神经元记录
-        neuron_record = load_neuron(0, neuron_idx, neuron_records_path)
+        neuron_record = load_neuron(10, neuron_idx, neuron_records_path)
         
         # 获取激活记录
         slice_params = ActivationRecordSliceParams(n_examples_per_split=5)
@@ -95,14 +97,14 @@ async def evaluate_neurons():
         }
         total_score += score
 
-        # 每处理 4 个神经元，暂停并询问用户是否继续
-        if i % 4 == 0:
-            print(results)
-            user_input = input("Do you want to continue? Type 'YES' to proceed: ")
-            if user_input.strip().upper() != 'YES':
-                logging.info("Process interrupted by user.")
-                print("Process interrupted by user.")
-                return  # 退出函数
+        # # 每处理 4 个神经元，暂停并询问用户是否继续
+        # if i % 4 == 0:
+        #     print(results)
+        #     user_input = input("Do you want to continue? Type 'YES' to proceed: ")
+        #     if user_input.strip().upper() != 'YES':
+        #         logging.info("Process interrupted by user.")
+        #         print("Process interrupted by user.")
+        #         return  # 退出函数
 
     # 计算平均得分
     average_score = total_score / TEST_NUM

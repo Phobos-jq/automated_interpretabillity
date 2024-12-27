@@ -90,7 +90,8 @@ API_HTTP_HEADERS = {
 
 # BASE_API_URL = 'https://open.xiaojingai.com/v1'    # 使用openai镜像网站
 # BASE_API_URL = 'https://ai.liaobots.work/v1'    # 使用openai镜像网站
-BASE_API_URL = "https://api.openai.com/v1"
+BASE_API_URL = 'https://api.feidaapi.com/v1'
+# BASE_API_URL = "https://api.openai.com/v1"
 
 
 class ApiClient:

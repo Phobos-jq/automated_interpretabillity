@@ -34,7 +34,10 @@ def dumps(obj: Any) -> bytes:
     return orjson.dumps(obj, option=orjson.OPT_SERIALIZE_NUMPY)
 
 
-def _object_hook(d: Any, backwards_compatible: bool = True) -> Any:
+def _object_hook(d: Any, backwards_compatible: bool = False) -> Any:
+    """
+    将一个json可接受的数据类型转化为我们已经自己定义的（并且注册过）的Class类型（即反序列化/解码）
+    """
     # If d is a list, recurse.
     if isinstance(d, list):
         return [_object_hook(x, backwards_compatible=backwards_compatible) for x in d]
@@ -43,7 +46,7 @@ def _object_hook(d: Any, backwards_compatible: bool = True) -> Any:
         return d
     cls = None
     if "dataclass_name" in d:
-        if d["dataclass_name"] in dataclasses_by_name:
+        if d["dataclass_name"] in dataclasses_by_name.keys():
             cls = dataclasses_by_name[d["dataclass_name"]]
         else:
             assert backwards_compatible, (
@@ -51,6 +54,14 @@ def _object_hook(d: Any, backwards_compatible: bool = True) -> Any:
                 f"are okay with that."
             )
     # Load objects created without dataclass_name set.
+    # elif any(key.startswith("layer_") for key in d):
+    #     return {
+    #         f"layer_{i}" : _object_hook(d[f"layer_{i}"]) for i in range(len(d))
+    #     }
+    # elif any(key.startswith("neuron_") for key in d):
+    #     return {
+    #         f"neuron_{i}" : _object_hook(d[f"neuron_{i}"]) for i in range(len(d))
+    #     }
     else:
         # Try our best to find a dataclass if backwards_compatible is True.
         if backwards_compatible:
@@ -73,13 +84,16 @@ def _object_hook(d: Any, backwards_compatible: bool = True) -> Any:
         if k != "dataclass_name"
     }
     if cls is not None:
-        return cls(**new_d)
+        return cls(**new_d)     # 返回一个自己定义的Class的实例
     else:
-        return new_d
+        return new_d    
 
 
-def loads(s: Union[str, bytes], backwards_compatible: bool = True) -> Any:
-    return json.loads(
-        s,
-        object_hook=partial(_object_hook, backwards_compatible=backwards_compatible),
-    )
+# def loads(s: Union[str, bytes], backwards_compatible: bool = False) -> Any:
+#     return json.loads(
+#         s,
+#         object_hook=partial(_object_hook, backwards_compatible=backwards_compatible),
+#     )
+
+def loads(s: Union[str, bytes], backwards_compatible: bool = False) -> Any:
+    return _object_hook(s, backwards_compatible)

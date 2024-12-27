@@ -1,0 +1,93 @@
+=========================
+neuron_records_path='/data/jqliu/ML_jq/nanoGPT/activations/ori_136000it/neuron_records_neurons.json'
+random_neuron_indices=[2619, 456, 102, 3037, 1126, 1003, 914, 571, 3016, 419, 2771, 3033, 2233, 356, 2418, 1728, 130, 122, 383, 895, 952, 2069, 2465, 108]
+=========================
+now evaluating feature_2619
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 2619 explanation: time-related expressions or references.
+Neuron 2619 score: 0.14
+now evaluating feature_456
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 456 explanation: terminologies and context related to legal issues and court proceedings.
+Neuron 456 score: 0.44
+now evaluating feature_102
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 102 explanation: words and phrases indicating intense focus or attention.
+Neuron 102 score: 0.10
+now evaluating feature_3037
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 3037 explanation: words and phrases related to political conflicts and disputes.
+Neuron 3037 score: 0.53
+now evaluating feature_1126
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 1126 explanation: parts of verbs or verb phrases.
+Neuron 1126 score: 0.06
+now evaluating feature_1003
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 1003 explanation: terms and phrases related to astrophysics and celestial observations.
+Neuron 1003 score: 0.49
+now evaluating feature_914
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 914 explanation: verbs that indicate a position or movement and some connecting words.
+Neuron 914 score: 0.15
+now evaluating feature_571
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 571 explanation: references to population statistics and survey results.
+Neuron 571 score: 0.54
+now evaluating feature_3016
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 3016 explanation: expressions of regret or wishes for different outcomes.
+Neuron 3016 score: 0.19
+now evaluating feature_419
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 419 explanation: legal or policy related terms and numbers.
+Neuron 419 score: 0.15
+now evaluating feature_2771
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 2771 explanation: action-focused verbs combined with directional or preposition words.
+Neuron 2771 score: 0.25
+now evaluating feature_3033
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 3033 explanation: proper names, particularly related to legal or political figures.
+Neuron 3033 score: 0.23
+now evaluating feature_2233
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 2233 explanation: texts related to sports news, including recruitment, injuries, and game highlights.
+Neuron 2233 score: 0.60
+now evaluating feature_356
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 356 explanation: proper nouns, particularly names of people and places.
+Neuron 356 score: 0.06
+now evaluating feature_2418
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 2418 explanation: words related to household items or objects.
+Neuron 2418 score: 0.34
+now evaluating feature_1728
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 1728 explanation: numbers and mathematical terms.
+Neuron 1728 score: 0.18
+now evaluating feature_130
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 130 explanation: specific days of the week and financial terms.
+Neuron 130 score: 0.06
+now evaluating feature_122
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 122 explanation: sentences related to actions or statements by Donald Trump.
+Neuron 122 score: 0.52
+now evaluating feature_383
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 383 explanation: references to monetary rewards, especially in the form of prizes or gifts.
+Neuron 383 score: 0.27
+now evaluating feature_895
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 895 explanation: mentions of the word "Good" and numerals.
+Neuron 895 score: 0.34
+now evaluating feature_952
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 952 explanation: numerical values, particularly large numbers.
+Neuron 952 score: 0.33
+now evaluating feature_2069
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 2069 explanation: the presence of certain prepositions and conjunctions, such as 'in', 'for', 'of', 'by', and 'and'.
+
+0.284
