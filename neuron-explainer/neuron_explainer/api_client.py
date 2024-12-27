@@ -9,7 +9,6 @@ from typing import Any, Callable, Optional
 
 import httpx
 import orjson
-import requests
 
 
 def is_api_error(err: Exception) -> bool:
@@ -135,12 +134,7 @@ class ApiClient:
             # endpoint. Otherwise, it should be sent to the /completions endpoint.
             url = BASE_API_URL + ("/chat/completions" if "messages" in kwargs else "/completions")
             kwargs["model"] = self.model_name
-            # print("======================================")
-            # print(f"{kwargs=}")
-            # print(f"{url=}, {API_HTTP_HEADERS=}")
             response = await http_client.post(url, headers=API_HTTP_HEADERS, json=kwargs)
-            # print(f"{(response.json())=}")
-            # print("======================================")
         # The response json has useful information but the exception doesn't include it, so print it
         # out then reraise.
         try:
@@ -151,63 +145,6 @@ class ApiClient:
         if self._cache is not None:
             self._cache[key] = response.json()
         return response.json()
-    
-        generate_kwargs: dict[str, Any] = {
-            "max_tokens": 0,
-            "echo": True,
-            "logprobs": 5,
-        }
-# 改用request调用api
-# class ApiClient:
-#     """使用 OpenAI API 进行推理的客户端。支持响应缓存和并发限制。"""
-#     def __init__(
-#         self,
-#         model_name: str,
-#         # If set, no more than this number of HTTP requests will be made concurrently.
-#         max_concurrent: Optional[int] = None,
-#         # Whether to cache request/response pairs in memory to avoid duplicating requests.
-#         cache: bool = False,
-#     ):
-#         self.model_name = model_name
-
-#         if max_concurrent is not None:
-#             self._concurrency_check: Optional[Semaphore] = Semaphore(max_concurrent)
-#         else:
-#             self._concurrency_check = None
-
-#         if cache:
-#             self._cache: Optional[dict[str, Any]] = {}
-#         else:
-#             self._cache = None
-
-#     def make_request(self, timeout_seconds: Optional[int] = None, **kwargs: Any) -> dict[str, Any]:
-#         if self._cache is not None:
-#             key = orjson.dumps(kwargs)
-#             if key in self._cache:
-#                 return self._cache[key]
-
-#         url = BASE_API_URL + ("/chat/completions" if "messages" in kwargs else "/completions")
-#         kwargs["model"] = self.model_name
-
-#         print(f"!!url = {url}")
-#         print(f"!!API_HTTP_HEADERS = {API_HTTP_HEADERS}")
-#         print(f"!!json = {kwargs}")
-#         response = requests.post(url, headers=API_HTTP_HEADERS, json=kwargs, timeout=timeout_seconds)
-#         # print("!!response got")
-
-#         try:
-#             response.raise_for_status()
-#             print("response text:", response.text)
-#         except Exception as e:
-#             print(f"error, {response.status_code}")
-#             print("Response text:", response.text)  # 打印响应内容
-#             print(response.json())  # 打印错误信息
-#             raise e
-
-#         if self._cache is not None:
-#             self._cache[key] = response.json()
-
-#         return response.json()
 
 
 if __name__ == "__main__":

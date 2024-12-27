@@ -1,4 +1,5 @@
 """Uses API calls to simulate neuron activations based on an explanation."""
+"""修改了ExplanationTokenByTokenSimulator类，可以用llama来模拟激活"""
 
 from __future__ import annotations
 
@@ -511,21 +512,9 @@ class ExplanationTokenByTokenSimulator(NeuronSimulator):
                     for token_index in range(len(tokens))
                 ]
             )
-            # print("===============================")
-            # print("===============================")
-            # print(f"{responses_by_token=}")
-            # print("===============================")
-            # print("===============================")
             expected_values, distribution_values, distribution_probabilities = [], [], []
             for response in responses_by_token:
-                # print("===============================")
-                # print(f"{response=}")
-                # print("===============================")
-                activation_top_logprobs = response["choices"][0]["logprobs"]["top_logprobs"]
-                if len(activation_top_logprobs) >= 1:
-                    activation_logprobs = activation_top_logprobs[0]
-                elif len(activation_top_logprobs) == 0:
-                    activation_logprobs = {'0': -10, '1': -10, '2': -10, '3': -10, '<|endoftext|>': -1, '4': -10, ' 5': -10, '6': -10, '7': -10, '8': -10, '9': -10, '\n': -10, '\t': -10, '10': -10, ' ': -10}
+                activation_logprobs = response["choices"][0]["logprobs"]["top_logprobs"][0]
                 (
                     norm_probabilities_by_distribution_value,
                     expected_value,
@@ -654,111 +643,6 @@ class ExplanationTokenByTokenSimulator(NeuronSimulator):
 
         return all_activation_stats
     
-        #     batch_inputs = []
-        #     for messages in batch_messages:
-        #         input_ids = self.tokenizer.apply_chat_template(
-        #             messages,
-        #             add_generation_prompt=True,
-        #             return_tensors="pt",
-        #             return_dict=True,
-        #         )['input_ids']
-        #         # print(f"Input IDs shape: {input_ids.shape}")
-        #         batch_inputs.append(input_ids.to(self.model.device))
-
-        #     max_length = max(input_ids.shape[1] for input_ids in batch_inputs)
-        #     batch_inputs = [
-        #         torch.nn.functional.pad(
-        #             input_ids,
-        #             (max_length - input_ids.shape[1], 0),  # 左侧填充 (left_pad, right_pad)
-        #             value=self.tokenizer.pad_token_id
-        #         ) for input_ids in batch_inputs
-        #     ]
-        #     batch_input = torch.cat(batch_inputs, dim=0)
-
-        #     # batch_input = torch.cat([
-        #     #     self.tokenizer.apply_chat_template(
-        #     #         messages,
-        #     #         add_generation_prompt=True,
-        #     #         return_tensors="pt",
-        #     #         return_dict=True,
-        #     #     )['input_ids'].to(self.model.device) 
-        #     #     for messages in batch_messages
-        #     # ], dim=0)
-            
-        #     # # Tokenize all messages at once for efficient processing
-        #     # _batch_inputs = self.tokenizer.batch_encode_plus(
-        #     #     [self.tokenizer.apply_chat_template(
-        #     #         messages,
-        #     #         add_generation_prompt=True,
-        #     #     ) for messages in batch_messages],
-        #     #     padding=True,
-        #     #     return_tensors="pt",
-        #     #     return_attention_mask=True,
-        #     # )
-
-        #     # # Move input tensors to GPU if available
-        #     # batch_input = _batch_inputs["input_ids"].to(self.model.device)
-        #     # attention_mask = _batch_inputs["attention_mask"].to(self.model.device)
-
-        #     terminators = [
-        #         self.tokenizer.eos_token_id,
-        #         self.tokenizer.convert_tokens_to_ids("<|eot_id|>")
-        #     ]
-
-        #     # 生成 attention mask
-        #     attention_mask = self.tokenizer.apply_chat_template(
-        #         batch_messages[0],
-        #         add_generation_prompt=True,
-        #         return_tensors="pt",
-        #         return_dict=True,
-        #     )['attention_mask']       
-        #     print("start generating")
-
-        #     outputs = self.model.generate(
-        #         batch_input,
-        #         attention_mask=attention_mask,  # 显式提供 attention mask
-        #         max_new_tokens=1,
-        #         eos_token_id=terminators,
-        #         pad_token_id=self.tokenizer.pad_token_id,  # 明确设置 pad token id
-        #         do_sample=True,
-        #         temperature=0.6,
-        #         top_p=0.9,
-        #         return_legacy_cache=True,  # 显式启用旧的缓存返回格式
-        #         output_scores=True,
-        #         return_dict_in_generate=True,
-        #     )
-        #     # print(f"{outputs['scores']=}")
-        #     # print(f"{len(outputs.sequences[0])=}")
-        #     scores = outputs['scores'][0] # (len(tokens), vocab_size)
-        #     # top_scores, top_scores_indices = torch.topk(scores, 15)
-        #     # print(f"{top_scores=}")
-        #     # print(f"{top_scores_indices=}")
-        #     # assert len(scores) == 1, f'in _get_activation_stats_for_single_token_llama, {len(outputs.scores)=}'
-        #     # Convert logits to log probabilities
-        #     logprobs = torch.nn.functional.log_softmax(scores, dim=-1)  # Shape: (len(tokens), vocab_size)
-
-        #     # Retrieve top-k log probabilities and corresponding token IDs
-        #     top_k = 15
-        #     top_values, top_indices = torch.topk(logprobs, top_k, dim=-1)  # Shape: (len(tokens), top_k)
-
-        #     # Convert token IDs to readable tokens
-        #     top_tokens = [
-        #         self.tokenizer.convert_ids_to_tokens(indices.tolist())
-        #         for indices in top_indices
-        #     ]
-        #     # Convert token IDs to tokens
-        #     # top_tokens = self.tokenizer.convert_ids_to_tokens(top_indices.cpu().numpy())
-
-        #     # Build the output list of dictionaries
-        #     # Combine into a list of dictionaries
-        #     activation_stats = [
-        #         {
-        #             top_tokens[i][j]: top_values[i, j].item() for j in range(top_k)
-        #         }
-        #         for i in range(top_values.size(0))
-        #     ]
-
-        # return activation_stats
 
     async def _get_activation_stats_for_single_token_llama(
         self,

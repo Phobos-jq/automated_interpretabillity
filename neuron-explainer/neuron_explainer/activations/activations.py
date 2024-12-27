@@ -1,5 +1,6 @@
 # Dataclasses and enums for storing neuron-indexed information about activations. Also, related
 # helper functions.
+"""修改了load_neuron函数，原本从网络上下载openai自己的neuronRecord，现在从本地读取"""
 
 import math
 import json
@@ -9,10 +10,8 @@ from typing import List, Optional, Union
 import urllib.request
 import blobfile as bf
 import boostedblob as bbb
-import sys 
-sys.path.append("/home/jqliu/ML_jq/neuronExpainer/automated-interpretability/neuron-explainer")
 from neuron_explainer.fast_dataclasses import FastDataclass, loads, register_dataclass
-# from azure import standardize_azure_url
+from neuron_explainer.azure import standardize_azure_url
 
 
 @register_dataclass

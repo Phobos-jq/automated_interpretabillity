@@ -2,7 +2,7 @@
 import json
 import os
 import math
-from activations import ActivationRecord,NeuronId,NeuronRecord
+from neuron_explainer.activations import ActivationRecord,NeuronId,NeuronRecord
 
 max_length = 64
 activations_dir = '/data/jqliu/ML_jq/nanoGPT/activations/'
