@@ -2,7 +2,9 @@
 import json
 import os
 import math
-from neuron_explainer.activations import ActivationRecord,NeuronId,NeuronRecord
+import sys
+sys.path.append('../')
+from neuron_explainer.activations.activations import ActivationRecord,NeuronId,NeuronRecord
 
 max_length = 64
 activations_dir = './'

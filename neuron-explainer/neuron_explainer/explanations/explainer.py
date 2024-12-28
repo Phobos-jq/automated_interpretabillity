@@ -1,6 +1,5 @@
 """Uses API calls to generate explanations of neuron behavior."""
-"""在generate_explanations中加了两个打印语句，来显示是否成功获得了response，其他没变"""
-
+# 在generate_explanations中加了两个打印语句，来显示是否成功获得了response，其他没变
 from __future__ import annotations
 
 import logging

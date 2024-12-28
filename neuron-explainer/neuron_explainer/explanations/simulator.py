@@ -1,6 +1,5 @@
 """Uses API calls to simulate neuron activations based on an explanation."""
-"""修改了ExplanationTokenByTokenSimulator类，可以用llama来模拟激活"""
-
+# 修改了ExplanationTokenByTokenSimulator类，可以用llama来模拟激活
 from __future__ import annotations
 
 import asyncio
