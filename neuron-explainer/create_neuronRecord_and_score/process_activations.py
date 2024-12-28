@@ -15,8 +15,8 @@ import json
 
 
 max_length = 64
-activations_dir = '/data/jqliu/ML_jq/nanoGPT/activations/'
-folder_name = 'nonneg_feature_136000it'        # 调整这个
+activations_dir = './'
+folder_name = 'ori_136000it'
 info_file_name = 'info_dict_neurons_activations'
 info_dict_path = os.path.join(activations_dir, folder_name, info_file_name+f'__len_{max_length}.json')
 activations_file_name = os.path.join(activations_dir, folder_name, f'neurons_activations__len_{max_length}')

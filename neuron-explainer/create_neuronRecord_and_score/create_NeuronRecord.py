@@ -5,8 +5,8 @@ import math
 from neuron_explainer.activations import ActivationRecord,NeuronId,NeuronRecord
 
 max_length = 64
-activations_dir = '/data/jqliu/ML_jq/nanoGPT/activations/'
-folder_name = 'ori_finetune_nonneg_feature_250000it'
+activations_dir = './'
+folder_name = 'ori_136000it'
 neuron_records_name = os.path.join(activations_dir, folder_name, 'neuron_records') # +_neurons.json/_features.json
 
 import pickle
@@ -35,7 +35,7 @@ def process(example):
 def create_from_info_dict_features():
     info_file_name = 'info_dict_features_activations'
     info_dict_path = os.path.join(activations_dir, folder_name, info_file_name+f'__len_{max_length}.json')
-    neuron_records_path = neuron_records_name + '_featuress.json'
+    neuron_records_path = neuron_records_name + '_features.json'
     print("create_from_info_dict_features")
     print(f'{info_dict_path=}')
     print(f'{neuron_records_path=}')
@@ -163,6 +163,6 @@ def create_from_info_dict_neurons():
     print("finish")
     
 if __name__ == '__main__':
-    create_from_info_dict_features()
+    create_from_info_dict_neurons()
 
 

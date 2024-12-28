@@ -1,5 +1,10 @@
 """
-nanoGPT的model.py文件（添加了run_with_cache功能）
+Full definition of a GPT Language Model, all of it in this single file.
+References:
+1) the official GPT-2 TensorFlow implementation released by OpenAI:
+https://github.com/openai/gpt-2/blob/master/src/model.py
+2) huggingface/transformers PyTorch implementation:
+https://github.com/huggingface/transformers/blob/main/src/transformers/models/gpt2/modeling_gpt2.py
 """
 
 import os
@@ -14,15 +19,17 @@ import torch.nn as nn
 from torch.nn import functional as F
 
 class HookManager:
-    def __init__(self, model, layers_to_hook):
+    def __init__(self, model, layers_to_hook=None, neurons_to_ban:list[dict]=None):
         """
         初始化 HookManager。
 
         :param model: 要挂钩的模型。
         :param layers_to_hook: 要挂钩的层的名称列表（字符串）。
+        :param neurons_to_ban[i], key: {layer_name, neuron_index}
         """
         self.model = model
         self.layers_to_hook = layers_to_hook
+        self.neurons_to_ban = neurons_to_ban
         self.hooks = []
         self.cache = {}
 
@@ -41,6 +48,12 @@ class HookManager:
             else:
                 module = getattr(module, name)
         return module
+    
+    def _create_hook_ban(self, neuron_indx):
+        def hook(module, input, output):
+            output[:, :, neuron_indx] = 0
+            return output
+        return hook
 
     def _create_hook(self, name):
         """
@@ -53,15 +66,61 @@ class HookManager:
             self.cache[name] = output.detach().cpu()
         return hook
 
+    # def _create_pre_hook(self, name):
+    #     def hook(module, input):
+    #         self.cache[name] = input[0].detach().cpu()  # input 是一个tuple 很奇怪
+    #     return hook
+
+    def register_hooks_ban(self):
+        for neuron_to_ban in self.neurons_to_ban:
+            layer_name = neuron_to_ban["layer_name"]
+            if layer_name == 'features':    # features 需要单独处理
+                if self.model.config.non_neg_feature == True:
+                    layer_name = 'relu'
+                else:
+                    layer_name = 'transformer.ln_f'
+            module = self._get_module_by_name(self.model, layer_name)
+            hook_fn = self._create_hook_ban(neuron_to_ban["neuron_index"])
+            hook = module.register_forward_hook(hook_fn)
+            self.hooks.append(hook)
+
     def register_hooks(self):
         """
         注册钩子到指定的层。
         """
         for layer_name in self.layers_to_hook:
+            if layer_name == 'features':    # features 需要单独处理
+                self.register_feature_hook()
+                continue
             module = self._get_module_by_name(self.model, layer_name)
             hook_fn = self._create_hook(layer_name)
             hook = module.register_forward_hook(hook_fn)
             self.hooks.append(hook)
+
+    def register_feature_hook(self):
+        if self.model.config.non_neg_feature == True:
+            name = 'relu'
+        else:
+            name = 'transformer.ln_f'
+        # name = 'transformer.ln_f' if not self.model.config.non_neg_feature else 'relu'
+        module = self._get_module_by_name(self.model, name)
+        hook_fn = self._create_hook('features')
+        hook = module.register_forward_hook(hook_fn)
+        self.hooks.append(hook)
+
+    # def register_pre_hooks(self):
+    #     """
+    #     通过在lm_head前注册pre_hook提取最后一层feature
+    #     """
+    #     if self.model.config.non_neg_feature == False:
+    #         name = 'lm_head'
+    #     if self.model.config.non_neg_feature == True:
+    #         name = 'non_neg_lm_head'
+    #     module = getattr(self.model, name)
+    #     hook_fn = self._create_pre_hook('features')
+    #     hook = module.register_forward_pre_hook(hook_fn)
+    #     self.hooks.append(hook)
+
 
     def remove_hooks(self):
         """
@@ -83,6 +142,7 @@ class NonNegLinear(nn.Linear):
         if self.bias is not None:
             self.bias.data = torch.clamp(self.bias.data, min=0)
         return F.linear(input, self.weight, self.bias)
+    
 
 class LayerNorm(nn.Module):
     """ LayerNorm but with an optional bias. PyTorch doesn't support simply bias=False """
@@ -148,6 +208,7 @@ class MLP(nn.Module):
 
     def __init__(self, config):
         super().__init__()
+        self.config = config
         self.c_fc    = nn.Linear(config.n_embd, 4 * config.n_embd, bias=config.bias)
         self.gelu    = nn.GELU()
         self.c_proj  = nn.Linear(4 * config.n_embd, config.n_embd, bias=config.bias)
@@ -164,14 +225,19 @@ class Block(nn.Module):
 
     def __init__(self, config):
         super().__init__()
+        self.config = config
         self.ln_1 = LayerNorm(config.n_embd, bias=config.bias)
         self.attn = CausalSelfAttention(config)
         self.ln_2 = LayerNorm(config.n_embd, bias=config.bias)
         self.mlp = MLP(config)
+        if config.non_neg_block:
+            self.relu = nn.ReLU()
 
     def forward(self, x):
         x = x + self.attn(self.ln_1(x))
         x = x + self.mlp(self.ln_2(x))
+        if self.config.non_neg_block:
+            x = self.relu(x)
         return x
 
 @dataclass
@@ -185,6 +251,7 @@ class GPTConfig:
     bias: bool = True # True: bias in Linears and LayerNorms, like GPT-2. False: a bit better and faster
     non_neg_feature: bool = False # True: apply relu for last representation feature
     non_neg_weight: bool = False # True: restrict the weights and bias of last linear layer(computing logits) to be non-neg
+    non_neg_block: bool = False # True: apply relu after MLP
 
 class GPT(nn.Module):
 
@@ -202,6 +269,8 @@ class GPT(nn.Module):
             ln_f = LayerNorm(config.n_embd, bias=config.bias),
         ))
         self.lm_head = nn.Linear(config.n_embd, config.vocab_size, bias=False)
+        if config.non_neg_feature:
+            self.relu = nn.ReLU()
         if config.non_neg_weight:
             self.non_neg_lm_head = NonNegLinear(config.n_embd, config.vocab_size, bias=False)
         # with weight tying when using torch.compile() some warnings get generated:
@@ -280,7 +349,7 @@ class GPT(nn.Module):
 
         # apply relu at final feature if non_neg_feature is True
         if self.config.non_neg_feature:
-            x = F.relu(x)
+            x = self.relu(x)
 
         if targets is not None:
             # if we are given some desired targets also calculate the loss
@@ -424,6 +493,9 @@ class GPT(nn.Module):
             # pluck the logits at the final step and scale by desired temperature
             logits = logits[:, -1, :] / temperature
             # optionally crop the logits to only the top k options
+
+            # Set logits for tokens >= 50257 to -Inf to prevent their generation
+            logits[:, 50257:] = -float('Inf')
             if top_k is not None:
                 v, _ = torch.topk(logits, min(top_k, logits.size(-1)))
                 logits[logits < v[:, [-1]]] = -float('Inf')
@@ -445,9 +517,18 @@ class GPT(nn.Module):
         :param device: 设备（'cpu' 或 'cuda'）。如果为 None，则使用模型当前的设备。
         :return: logits, loss, activation_cache
         """
-        if layers_to_hook is None:
-            # 默认捕捉MLP 中的 GELU
+        if layers_to_hook == "NEURONS" or layers_to_hook == ['NEURONS']:
+            # 捕捉MLP 中的 GELU
             layers_to_hook = []
+            for layer_num in range(self.config.n_layer):
+                layers_to_hook.append(f'transformer.h.{layer_num}.mlp.gelu')
+        
+        if layers_to_hook == "FEATURES" or layers_to_hook == ['FEATURES'] or layers_to_hook == None:
+            #默认捕捉最后一层feature
+            layers_to_hook = ['features']
+
+        if layers_to_hook == "NEURONS_AND_FEATURES":
+            layers_to_hook = ['features']
             for layer_num in range(self.config.n_layer):
                 layers_to_hook.append(f'transformer.h.{layer_num}.mlp.gelu')
 
@@ -458,7 +539,9 @@ class GPT(nn.Module):
         self.to(device)
 
         # 初始化 HookManager
-        hook_manager = HookManager(self, layers_to_hook)
+        hook_manager = HookManager(self, layers_to_hook=layers_to_hook)
+        # if 'features' in layers_to_hook:
+        #     hook_manager.register_pre_hooks()
         hook_manager.register_hooks()
 
         # 清空缓存
@@ -472,3 +555,19 @@ class GPT(nn.Module):
         hook_manager.remove_hooks()
 
         return logits, loss, hook_manager.cache
+    
+    def ban_neurons(self, neurons_to_ban_index: list[dict]):
+        """neurons_to_ban[i], key: {layer, neuron_index}"""
+        if neurons_to_ban_index == None:
+            return
+        neurons_to_ban=[]
+        for neuron_to_ban_index in neurons_to_ban_index:
+            if neuron_to_ban_index["layer"]=='features':
+                neurons_to_ban.append({"layer_name":'features', "neuron_index":neuron_to_ban_index["neuron_index"]})
+                continue
+            assert isinstance(neuron_to_ban_index["layer"], int)
+            neurons_to_ban.append({"layer_name":f'transformer.h.{neuron_to_ban_index["layer"]}.mlp.gelu', "neuron_index":neuron_to_ban_index["neuron_index"]})
+            
+        hook_manager = HookManager(self, neurons_to_ban=neurons_to_ban)
+        hook_manager.register_hooks_ban()
+        return HookManager  # 返回一个HookManager，这样可以在创建模型的脚本中回收hook（该hook生命应该与模型一致）

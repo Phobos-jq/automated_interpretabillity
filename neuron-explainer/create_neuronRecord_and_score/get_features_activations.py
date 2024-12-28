@@ -20,14 +20,14 @@ max_length = 64
 batch_size = 2048
 NO_SAME_MAXTOKEN = False
 MEAN_ACT = False # True: get the most activated sentence(measured by mean activations)
-save_file_path = '/data/jqliu/ML_jq/nanoGPT/activations/'
-folder_name = 'ori_finetune_nonneg_feature_186000it'
-save_file_name = 'features_activations'  # '.../folder_name/features_activations__len_{max_length}__shard_{shard_index}.json'
+activations_dir = './'
+folder_name = 'ori_136000it'
+save_file_name = 'features_activations'  # 'activations_dir/folder_name/features_activations__len_{max_length}__shard_{shard_index}.json'
 
-model_dir = '/data/jqliu/ML_jq/nanoGPT/out_ori_finetune_nonneg_feature/out_test' # ignored if init_from is not 'resume'
+model_dir = '/data/jqliu/ML_jq/nanoGPT/out_ori/out_test' # ignored if init_from is not 'resume'
 enc = tiktoken.get_encoding("gpt2")
 
-folder_path = os.path.join(save_file_path, folder_name)
+folder_path = os.path.join(activations_dir, folder_name)
 if not os.path.exists(folder_path):
     print("Making", folder_path)
     os.mkdir(folder_path)
