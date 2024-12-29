@@ -1,0 +1,10 @@
+=========================
+neuron_records_path='./ori_136000it/neuron_records_neurons.json'
+layer_to_test=11
+random_neuron_indices=[2619, 456]
+=========================
+now evaluating feature_2619
+HTTP Request: POST https://api.feidaapi.com/v1/chat/completions "HTTP/1.1 200 OK"
+Neuron 2619 explanation: terms and phrases related to aerospace technology and commercial space exploration.
+Neuron 2619 score: 0.48
+now evaluating feature_456

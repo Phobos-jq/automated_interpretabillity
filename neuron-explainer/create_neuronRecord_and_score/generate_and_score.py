@@ -7,9 +7,6 @@ import logging
 os.environ["OPENAI_API_KEY"] = "sk-FLe3r5MtADhHFlhvU8pfu8UcpTzo7l9r9xckT0slHQAp2aQe"
 import sys 
 sys.path.append("../")
-neuron_records_path = "./ori_136000it/neuron_records_neurons.json"
-
-
 from neuron_explainer.activations.activation_records import calculate_max_activation
 from neuron_explainer.activations.activations import ActivationRecordSliceParams, load_neuron
 from neuron_explainer.explanations.calibrated_simulator import UncalibratedNeuronSimulator
@@ -18,11 +15,13 @@ from neuron_explainer.explanations.prompt_builder import PromptFormat
 from neuron_explainer.explanations.scoring import simulate_and_score
 from neuron_explainer.explanations.simulator import ExplanationTokenByTokenSimulator
 
+# 设置保存结果的log文件
 logging.basicConfig(filename='test.log', level=logging.INFO, format='%(message)s')
 
+neuron_records_path = "./ori_136000it/neuron_records_neurons.json"
 EXPLAINER_MODEL_NAME = "gpt-4"
 SIMULATOR_MODEL_NAME = "meta-llama/Meta-Llama-3-8B-Instruct"
-layer_to_test = 11  # 要测试的层。如果测试的是最后一层features（计算logits之前的那一层），设置为0
+layer_to_test = 11  # 要测试的层（从0开始）。如果测试的是最后一层features（计算logits之前的那一层），设置为0
 num_neurons = 3072  # 每一层神经元总数
 TEST_NUM = 2  # 要抽取测试的神经元数量
 SEED = 42

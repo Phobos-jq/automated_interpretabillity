@@ -1,0 +1,31 @@
+对原始neuron-explainer.neuron-explainer代码做出的主要更改：
+    1.api_client.py中修改了BASE_API_URL，使用镜像获得GPT4的回复
+    2.fast_dataclasses/fast_dataclasses.py中修改了loads函数，现在是从本地获取neuronRecord
+    3.activations/activations.py中对一些类添加了to_dict方法，以便序列化本地的neuronRecord，修改了load_neuron
+    4.explanations/simulator.py中修改了ExplanationTokenByTokenSimulator类，增加了用llama来模拟激活的功能
+
+    5.原始demo中用ExplanationNeuronSimulator类作为模拟模型，但是默认的text-davinci-003模型已经不用了，
+        我调整了挺久没调出来，就在generate_and_score.py中换成了使用ExplanationTokenByTokenSimulator类。
+
+
+
+使用说明：
+    1.get_activations.py和get_features_activations.py分别获取中间层和最后一层的激活值信息,并保存到本地
+        a.需要手动修改脚本中activations_dir来修改保存的路径，folder_name是activations_dir下保存本次结果的文件夹
+        b.修改model_dir指定预训练模型的路径
+    2.process_activations.py和process_features_activations.py预处理获取到的激活值信息，并保存到本地
+        a.将activations_dir和folder_name改成与1.中相同
+    3.create_neuronRecord.py创建neuronRecord，并保存到本地
+        a.将activations_dir和folder_name改成与1.中相同
+        b.有两个函数，create_from_info_dict_neurons()和create_from_info_dict_features()，分别生成
+            中间层的neuronRecord和最后一层的neuronRecord，需要在最后一行中手动修改。（默认是中间层）
+    4.generate_and_score.py用于计算得分，分数结果会显示在.log文件中
+        a.设置全局变量修改neuronRecord的路径以及测试的层、神经元数
+
+
+
+代码的问题：
+    1.get_activations.py在获取中间层的信息时很慢，虽然每次处理的文字序列使用了并行加速。但是对于神经元用的循环，
+        总共有3072*12个神经元要依次更新，我不知道这个怎么并行
+    2.中间层neuronRecord是对3072*12个神经元的所有信息，文件大小很大。所以使用generate_and_score.py计算得分时，
+        在加载neuronRecord时会很慢（需要5分钟左右）

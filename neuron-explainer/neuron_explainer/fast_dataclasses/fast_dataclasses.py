@@ -2,7 +2,7 @@
 # validation. Fields must not be tuples, since they get serialized and then deserialized as lists.
 #
 # The unit tests for this library show how to use it.
-"""修改了load函数, 以便直接从本地读取neuronRecord文件"""
+"""修改了loads函数, 以便直接从本地读取neuronRecord文件"""
 
 import json
 from dataclasses import dataclass, field, fields, is_dataclass
